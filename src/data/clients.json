@@ -1,0 +1,38 @@
+[
+  {
+    "name": "TechCorp",
+    "logo": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
+    "industry": "Technology",
+    "description": "Full-stack development for enterprise SaaS platform"
+  },
+  {
+    "name": "FinanceHub",
+    "logo": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=80",
+    "industry": "Finance",
+    "description": "Built secure fintech dashboard with real-time analytics"
+  },
+  {
+    "name": "HealthFirst",
+    "logo": "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=200&q=80",
+    "industry": "Healthcare",
+    "description": "Patient portal and telemedicine integration"
+  },
+  {
+    "name": "EduLearn",
+    "logo": "https://images.unsplash.com/photo-1633613286991-611fe299c4be?w=200&q=80",
+    "industry": "Education",
+    "description": "Interactive learning platform with video streaming"
+  },
+  {
+    "name": "RetailPro",
+    "logo": "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=200&q=80",
+    "industry": "Retail",
+    "description": "E-commerce platform with inventory management"
+  },
+  {
+    "name": "MediaStream",
+    "logo": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=200&q=80",
+    "industry": "Media",
+    "description": "Video streaming service with CDN optimization"
+  }
+]
