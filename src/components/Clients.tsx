@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import clientsData from '@/data/clients.json';
 
 export default function Clients() {
   const { ref, isVisible } = useScrollReveal();
-  const [hoveredClient, setHoveredClient] = useState<string | null>(null);
 
   return (
     <section
@@ -31,29 +29,14 @@ export default function Clients() {
             <div
               key={client.name}
               className="relative group"
-              onMouseEnter={() => setHoveredClient(client.name)}
-              onMouseLeave={() => setHoveredClient(null)}
             >
-              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg aspect-square flex items-center justify-center">
+              <div className="glass rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg aspect-square flex items-center justify-center">
                 <img
                   src={client.logo}
                   alt={client.name}
                   className="w-full h-full object-cover rounded-lg opacity-70 group-hover:opacity-100 transition-opacity"
                 />
               </div>
-
-              {/* Hover Details */}
-              {hoveredClient === client.name && (
-                <div className="absolute inset-0 bg-card/95 backdrop-blur-md rounded-xl p-4 border border-primary/50 z-10 flex flex-col justify-center animate-scale-in">
-                  <h3 className="font-bold text-foreground mb-1 text-sm">
-                    {client.name}
-                  </h3>
-                  <p className="text-xs text-primary mb-2">{client.industry}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {client.description}
-                  </p>
-                </div>
-              )}
             </div>
           ))}
         </div>

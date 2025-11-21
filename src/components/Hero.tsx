@@ -68,7 +68,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">5+ Years</span>
+                <span className="text-sm text-muted-foreground">3+ Years</span>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end animate-scale-in">
             <div className="relative">
               {/* Glassmorphic Card */}
-              <div className="relative bg-card/80 backdrop-blur-md rounded-2xl p-8 border border-border/50 shadow-2xl max-w-md">
+              <div className="relative glass rounded-2xl p-8 shadow-2xl max-w-md">
                 <div className="space-y-6">
                   {/* Profile Image */}
                   <div className="flex justify-center">
@@ -97,14 +97,14 @@ export default function Hero() {
 
                   {/* Info */}
                   <div className="text-center space-y-2">
-                    <h3 className="text-xl font-bold text-foreground">John Developer</h3>
-                    <p className="text-sm text-muted-foreground">Senior Full Stack Engineer</p>
+                  <h3 className="text-xl font-bold text-foreground">Mesum Abbas</h3>
+                    <p className="text-sm text-muted-foreground">Full Stack Developer</p>
                   </div>
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/50">
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-primary">5+</p>
+                      <p className="text-2xl font-bold text-primary">3+</p>
                       <p className="text-xs text-muted-foreground">Years Exp</p>
                     </div>
                     <div className="text-center">

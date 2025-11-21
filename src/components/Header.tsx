@@ -48,7 +48,7 @@ export default function Header() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="text-xl font-bold text-foreground hover:text-primary transition-colors"
           >
-            Portfolio
+            Mesum Abbas
           </button>
 
           {/* Desktop Navigation */}

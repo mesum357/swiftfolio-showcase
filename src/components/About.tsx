@@ -5,10 +5,9 @@ export default function About() {
   const { ref, isVisible } = useScrollReveal();
 
   const timeline = [
-    { year: '2024', title: 'Senior Full Stack Developer', company: 'Tech Innovations Inc.' },
-    { year: '2022', title: 'Full Stack Developer', company: 'Digital Solutions Co.' },
-    { year: '2020', title: 'Frontend Developer', company: 'Web Studio Agency' },
-    { year: '2019', title: 'Junior Developer', company: 'StartUp Ventures' },
+    { year: '2024', title: 'Senior Full Stack Developer', company: 'Binary Hub' },
+    { year: '2023', title: 'Full Stack Developer', company: 'Binary Hub' },
+    { year: '2022', title: 'Frontend Developer', company: 'Binary Hub' },
   ];
 
   return (
@@ -32,9 +31,9 @@ export default function About() {
           </div>
 
           {/* Bio */}
-          <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 mb-12">
+          <div className="glass rounded-2xl p-8 shadow-lg mb-12">
             <p className="text-foreground leading-relaxed mb-4">
-              I'm a full-stack developer with over 5 years of experience building scalable web applications. 
+              I'm a full-stack developer with over 3 years of experience building scalable web applications. 
               My journey in tech started with a curiosity for how things work, which evolved into a passion 
               for creating elegant solutions to complex problems.
             </p>
@@ -51,7 +50,7 @@ export default function About() {
             {timeline.map((item, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 bg-card/30 backdrop-blur-sm rounded-xl p-4 border border-border/30 hover:border-primary/50 transition-colors"
+                className="flex items-start gap-4 glass rounded-xl p-4 hover:border-primary/50 transition-colors"
               >
                 <div className="flex-shrink-0">
                   <CheckCircle2 className="h-6 w-6 text-primary" />

@@ -1,8 +1,44 @@
 import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { 
+  Code2, 
+  Database, 
+  Server, 
+  Cloud, 
+  Terminal,
+  Palette,
+  Boxes,
+  GitBranch,
+  Layers,
+  Settings
+} from 'lucide-react';
 import skillsData from '@/data/skills.json';
 
 type SkillCategory = 'frontend' | 'backend' | 'database' | 'devops' | 'tools';
+
+const iconMap: Record<string, any> = {
+  'React': Code2,
+  'TypeScript': Code2,
+  'Tailwind CSS': Palette,
+  'Next.js': Layers,
+  'Framer Motion': Boxes,
+  'Node.js': Server,
+  'Express': Server,
+  'GraphQL': Database,
+  'Python': Terminal,
+  'PostgreSQL': Database,
+  'MongoDB': Database,
+  'Redis': Database,
+  'Prisma': Database,
+  'Docker': Boxes,
+  'AWS': Cloud,
+  'CI/CD': GitBranch,
+  'Kubernetes': Cloud,
+  'Git': GitBranch,
+  'VS Code': Terminal,
+  'Figma': Palette,
+  'Jest': Settings,
+};
 
 export default function Skills() {
   const { ref, isVisible } = useScrollReveal();
@@ -65,7 +101,7 @@ export default function Skills() {
               className={`px-6 py-3 rounded-xl font-medium transition-all ${
                 activeTab === tab.id
                   ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                  : 'bg-card/50 text-muted-foreground hover:bg-card hover:text-foreground border border-border/50'
+                  : 'glass hover:bg-card hover:text-foreground'
               }`}
             >
               {tab.label}
@@ -80,32 +116,29 @@ export default function Skills() {
           aria-labelledby={`tab-${activeTab}`}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="bg-card/70 backdrop-blur-sm rounded-xl p-6 border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
-                <span className="text-sm font-bold text-primary">{skill.level}%</span>
-              </div>
-              
-              {/* Progress Bar */}
-              <div className="h-2 bg-muted rounded-full overflow-hidden mb-3">
-                <div
-                  className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000 ease-out"
-                  style={{
-                    width: isVisible ? `${skill.level}%` : '0%',
-                  }}
-                />
-              </div>
+          {skills.map((skill, index) => {
+            const IconComponent = iconMap[skill.name] || Code2;
+            return (
+              <div
+                key={skill.name}
+                className="glass rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <IconComponent className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
+                  </div>
+                </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {skill.description}
-              </p>
-            </div>
-          ))}
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {skill.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
