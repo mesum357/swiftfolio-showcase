@@ -1,0 +1,117 @@
+{
+  "frontend": [
+    {
+      "name": "React",
+      "level": 95,
+      "description": "Advanced component architecture, hooks, and state management"
+    },
+    {
+      "name": "TypeScript",
+      "level": 90,
+      "description": "Type-safe development with advanced patterns"
+    },
+    {
+      "name": "Tailwind CSS",
+      "level": 95,
+      "description": "Utility-first styling and custom design systems"
+    },
+    {
+      "name": "Next.js",
+      "level": 88,
+      "description": "SSR, SSG, and full-stack React applications"
+    },
+    {
+      "name": "Framer Motion",
+      "level": 85,
+      "description": "Smooth animations and micro-interactions"
+    }
+  ],
+  "backend": [
+    {
+      "name": "Node.js",
+      "level": 90,
+      "description": "RESTful APIs and microservices architecture"
+    },
+    {
+      "name": "Express",
+      "level": 88,
+      "description": "Scalable server-side applications"
+    },
+    {
+      "name": "GraphQL",
+      "level": 82,
+      "description": "Modern API design and Apollo Server"
+    },
+    {
+      "name": "Python",
+      "level": 78,
+      "description": "Django, Flask, and data processing"
+    }
+  ],
+  "database": [
+    {
+      "name": "PostgreSQL",
+      "level": 88,
+      "description": "Complex queries and database optimization"
+    },
+    {
+      "name": "MongoDB",
+      "level": 85,
+      "description": "NoSQL database design and aggregations"
+    },
+    {
+      "name": "Redis",
+      "level": 80,
+      "description": "Caching and real-time data management"
+    },
+    {
+      "name": "Prisma",
+      "level": 87,
+      "description": "Type-safe database access and migrations"
+    }
+  ],
+  "devops": [
+    {
+      "name": "Docker",
+      "level": 85,
+      "description": "Containerization and orchestration"
+    },
+    {
+      "name": "AWS",
+      "level": 82,
+      "description": "Cloud infrastructure and serverless"
+    },
+    {
+      "name": "CI/CD",
+      "level": 88,
+      "description": "GitHub Actions and automated deployments"
+    },
+    {
+      "name": "Kubernetes",
+      "level": 75,
+      "description": "Container orchestration basics"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Git",
+      "level": 95,
+      "description": "Version control and collaboration workflows"
+    },
+    {
+      "name": "VS Code",
+      "level": 98,
+      "description": "Custom workflows and extensions"
+    },
+    {
+      "name": "Figma",
+      "level": 85,
+      "description": "UI/UX design and prototyping"
+    },
+    {
+      "name": "Jest",
+      "level": 88,
+      "description": "Unit and integration testing"
+    }
+  ]
+}
