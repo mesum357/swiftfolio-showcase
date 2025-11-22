@@ -56,7 +56,7 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
             © {new Date().getFullYear()} Made with
             <Heart className="h-4 w-4 text-primary fill-primary" />
-            by John Developer
+            by Mesum Abbas
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Button } from '@/components/ui/button';
 import ProjectModal from './ProjectModal';
-import projectsData from '@/data/projects.json';
+import projectsData from '@/data/projects';
 
 export default function Portfolio() {
   const { ref, isVisible } = useScrollReveal();
@@ -87,6 +87,10 @@ export default function Portfolio() {
                     variant="outline"
                     className="border-border hover:bg-muted"
                     aria-label="View live demo"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(project.liveUrl, '_blank');
+                    }}
                   >
                     <ExternalLink className="h-4 w-4" />
                   </Button>
@@ -95,6 +99,10 @@ export default function Portfolio() {
                     variant="outline"
                     className="border-border hover:bg-muted"
                     aria-label="View source code"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(project.githubUrl, '_blank');
+                    }}
                   >
                     <Github className="h-4 w-4" />
                   </Button>

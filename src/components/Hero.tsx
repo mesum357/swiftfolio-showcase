@@ -1,7 +1,7 @@
-import { ArrowRight, Download, Code2, Users, Award } from 'lucide-react';
+import { ArrowRight, Code2, Users, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBackground from '@/assets/hero-bg.jpg';
-import profileImage from '@/assets/profile.jpg';
+import profileImage from '@/assets/mesum.jpg';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -77,54 +77,45 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end animate-scale-in">
             <div className="relative">
               {/* Glassmorphic Card */}
-              <div className="relative glass rounded-2xl p-8 shadow-2xl max-w-md">
-                <div className="space-y-6">
+              <div className="relative glass rounded-2xl p-10 shadow-2xl max-w-xl">
+                <div className="space-y-8">
                   {/* Profile Image */}
                   <div className="flex justify-center">
                     <div className="relative">
-                      <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
                         <img
                           src={profileImage}
                           alt="Profile"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full border-4 border-card flex items-center justify-center">
-                        <span className="text-xs">✓</span>
+                      <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full border-4 border-card flex items-center justify-center">
+                        <span className="text-sm">✓</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Info */}
                   <div className="text-center space-y-2">
-                  <h3 className="text-xl font-bold text-foreground">Mesum Abbas</h3>
-                    <p className="text-sm text-muted-foreground">Full Stack Developer</p>
+                  <h3 className="text-2xl font-bold text-foreground">Mesum Abbas</h3>
+                    <p className="text-base text-muted-foreground">Full Stack Developer</p>
                   </div>
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/50">
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-primary">3+</p>
-                      <p className="text-xs text-muted-foreground">Years Exp</p>
+                      <p className="text-3xl font-bold text-primary">3+</p>
+                      <p className="text-sm text-muted-foreground">Years Exp</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-primary">50+</p>
-                      <p className="text-xs text-muted-foreground">Projects</p>
+                      <p className="text-3xl font-bold text-primary">50+</p>
+                      <p className="text-sm text-muted-foreground">Projects</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-primary">98%</p>
-                      <p className="text-xs text-muted-foreground">Success</p>
+                      <p className="text-3xl font-bold text-primary">98%</p>
+                      <p className="text-sm text-muted-foreground">Success</p>
                     </div>
                   </div>
-
-                  {/* Download Resume */}
-                  <Button
-                    variant="outline"
-                    className="w-full border-border hover:bg-muted"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Resume
-                  </Button>
                 </div>
               </div>
 

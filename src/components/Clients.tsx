@@ -1,5 +1,25 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import clientsData from '@/data/clients.json';
+import yriImage from '@/assets/clients/yri.jpg';
+import logoImage from '@/assets/clients/logo.png';
+import navttcImage from '@/assets/clients/navttc.png';
+import psebImage from '@/assets/clients/pseb.jpg';
+import vfoImage from '@/assets/clients/vfo.png';
+import scoImage from '@/assets/clients/sco.jpg';
+import gbgovImage from '@/assets/clients/gbgov.png';
+import gbpoliceImage from '@/assets/clients/gbpolice.png';
+import gbrspImage from '@/assets/clients/gbrsp.png';
+
+const clients = [
+  { name: 'YRI', logo: yriImage },
+  { name: 'Logo', logo: logoImage },
+  { name: 'NAVTTC', logo: navttcImage },
+  { name: 'PSEB', logo: psebImage },
+  { name: 'VFO', logo: vfoImage },
+  { name: 'SCO', logo: scoImage },
+  { name: 'GB Government', logo: gbgovImage },
+  { name: 'GB Police', logo: gbpoliceImage },
+  { name: 'GB RSP', logo: gbrspImage },
+];
 
 export default function Clients() {
   const { ref, isVisible } = useScrollReveal();
@@ -25,7 +45,7 @@ export default function Clients() {
 
         {/* Clients Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-          {clientsData.map((client) => (
+          {clients.map((client) => (
             <div
               key={client.name}
               className="relative group"
@@ -34,7 +54,7 @@ export default function Clients() {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="w-full h-full object-cover rounded-lg opacity-70 group-hover:opacity-100 transition-opacity"
+                  className="w-full h-full object-contain rounded-lg opacity-70 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>

@@ -1,17 +1,7 @@
 import { useEffect } from 'react';
 import { X, ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
-}
+import type { Project } from '@/data/projects';
 
 interface ProjectModalProps {
   project: Project;
