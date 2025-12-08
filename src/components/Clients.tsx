@@ -53,7 +53,7 @@ export default function Clients() {
               <div className="glass rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg aspect-square flex items-center justify-center">
                 <img
                   src={client.logo}
-                  alt={client.name}
+                  alt={`${client.name} - Client of Mesum Abbas, Web Developer in Gilgit Baltistan`}
                   className="w-full h-full object-contain rounded-lg opacity-70 group-hover:opacity-100 transition-opacity"
                 />
               </div>

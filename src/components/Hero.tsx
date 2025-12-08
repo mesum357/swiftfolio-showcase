@@ -27,15 +27,15 @@ export default function Hero() {
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-4">
               <p className="text-primary font-medium text-sm tracking-wider uppercase">
-                Full Stack Developer
+                Full Stack Developer in Gilgit Baltistan
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Building Digital
+                Mesum Abbas
                 <br />
-                <span className="text-primary">Experiences</span>
+                <span className="text-primary">Web Developer</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg">
-                Crafting elegant solutions with modern technologies. Specialized in React, Node.js, and cloud architecture.
+                Professional Web Developer and Full Stack Developer based in Gilgit, Gilgit Baltistan (GB). Crafting elegant solutions with modern technologies. Specialized in React, Node.js, and cloud architecture.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                       <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
                         <img
                           src={profileImage}
-                          alt="Profile"
+                          alt="Mesum Abbas - Web Developer and Full Stack Developer in Gilgit Baltistan"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -98,7 +98,7 @@ export default function Hero() {
                   {/* Info */}
                   <div className="text-center space-y-2">
                   <h3 className="text-2xl font-bold text-foreground">Mesum Abbas</h3>
-                    <p className="text-base text-muted-foreground">Full Stack Developer</p>
+                    <p className="text-base text-muted-foreground">Full Stack Developer in Gilgit Baltistan</p>
                   </div>
 
                   {/* Stats Grid */}

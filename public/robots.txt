@@ -12,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://mesumabbas.online/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

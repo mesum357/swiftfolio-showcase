@@ -96,7 +96,7 @@ export default function ContactForm() {
               Get In Touch
             </h2>
             <p className="text-muted-foreground">
-              Have a project in mind? Let's discuss how I can help bring your ideas to life
+              Have a project in mind? As a Web Developer and Full Stack Developer in Gilgit, Gilgit Baltistan (GB), I'm here to help bring your ideas to life. Get in touch for web development services.
             </p>
           </div>
 

@@ -33,13 +33,13 @@ export default function About() {
           {/* Bio */}
           <div className="glass rounded-2xl p-8 shadow-lg mb-12">
             <p className="text-foreground leading-relaxed mb-4">
-              I'm a full-stack developer with over 3 years of experience building scalable web applications. 
+              I'm Mesum Abbas, a professional Web Developer and Full Stack Developer based in Gilgit, Gilgit Baltistan (GB), with over 3 years of experience building scalable web applications. 
               My journey in tech started with a curiosity for how things work, which evolved into a passion 
               for creating elegant solutions to complex problems.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              I specialize in modern JavaScript frameworks, cloud architecture, and creating seamless user 
-              experiences. When I'm not coding, you'll find me contributing to open-source projects, writing 
+              As one of the leading Web Developers in Gilgit Baltistan, I specialize in modern JavaScript frameworks, cloud architecture, and creating seamless user 
+              experiences. I provide Full Stack Development services to clients in Gilgit, GB, and beyond. When I'm not coding, you'll find me contributing to open-source projects, writing 
               technical articles, or exploring the latest tech trends.
             </p>
           </div>

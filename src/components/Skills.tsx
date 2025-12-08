@@ -69,7 +69,7 @@ export default function Skills() {
             Skills & Expertise
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications
+            A comprehensive toolkit for building modern, scalable applications. Full Stack Development expertise in Gilgit Baltistan.
           </p>
         </div>
 

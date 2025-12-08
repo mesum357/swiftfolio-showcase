@@ -24,7 +24,7 @@ export default function Portfolio() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of recent work showcasing my skills and expertise
+            A selection of recent work showcasing my skills and expertise as a Web Developer and Full Stack Developer in Gilgit Baltistan
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function Portfolio() {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - Web Development Project by Mesum Abbas, Full Stack Developer in Gilgit Baltistan`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />

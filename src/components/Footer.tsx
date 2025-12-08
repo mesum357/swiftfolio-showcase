@@ -18,9 +18,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold text-foreground mb-1">Portfolio</h3>
+            <h3 className="text-lg font-bold text-foreground mb-1">Mesum Abbas</h3>
             <p className="text-sm text-muted-foreground">
-              Crafting digital experiences with passion
+              Web Developer & Full Stack Developer in Gilgit, Gilgit Baltistan (GB)
             </p>
           </div>
 
