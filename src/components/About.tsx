@@ -1,5 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import LinkedInBadge from '@/components/LinkedInBadge';
 
 export default function About() {
   const { ref, isVisible } = useScrollReveal();
@@ -42,6 +43,17 @@ export default function About() {
               experiences. I provide Full Stack Development services to clients in Gilgit, GB, and beyond. When I'm not coding, you'll find me contributing to open-source projects, writing 
               technical articles, or exploring the latest tech trends.
             </p>
+          </div>
+
+          {/* LinkedIn */}
+          <div className="mb-12">
+            <div className="text-center mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground">Connect</h3>
+              <p className="text-muted-foreground">
+                Prefer networking? Here’s my LinkedIn profile badge.
+              </p>
+            </div>
+            <LinkedInBadge />
           </div>
 
           {/* Timeline */}
