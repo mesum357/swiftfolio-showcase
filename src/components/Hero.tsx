@@ -1,129 +1,96 @@
-import { ArrowRight, Code2, Users, Award } from 'lucide-react';
+import { ArrowRight, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackground from '@/assets/hero-bg.jpg';
-import profileImage from '@/assets/mesum.jpg';
+import heroImage from '@/assets/img1.jpeg';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/80" />
+    <section className="relative min-h-screen overflow-hidden pt-24 pb-16">
+      {/* Full-bleed supplied hero image — MaXel-style landscape crop */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img
+          src={heroImage}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
+        />
+        <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-background/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/55" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="space-y-4">
-              <p className="text-primary font-medium text-sm tracking-wider uppercase">
-                Full Stack Developer in Gilgit Baltistan
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Mesum Abbas
-                <br />
-                <span className="text-primary">Web Developer</span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-lg">
-                Professional Web Developer and Full Stack Developer based in Gilgit, Gilgit Baltistan (GB). Crafting elegant solutions with modern technologies. Specialized in React, Node.js, and cloud architecture.
-              </p>
-            </div>
+      <div className="container relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] flex-col justify-between px-4 sm:px-6 lg:px-8">
+        <div className="grid flex-1 items-center gap-10 lg:grid-cols-12 lg:gap-6">
+          {/* Left — stacked outline headline */}
+          <div className="lg:col-span-6">
+            <h1 className="font-display text-[clamp(3.5rem,10vw,7.5rem)] font-extrabold leading-[0.9] tracking-tight">
+              <span className="block text-foreground">Build</span>
+              <span className="block text-outline">Digital</span>
+              <span className="block text-foreground">Futures</span>
+            </h1>
 
-            <div className="flex flex-wrap gap-4">
-              <Button
-                onClick={() => scrollToSection('portfolio')}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                View Work
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                onClick={() => scrollToSection('contact')}
-                variant="outline"
-                className="border-border hover:bg-muted"
-              >
-                Get in Touch
-              </Button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">50+ Projects</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">30+ Clients</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-primary" />
-                <span className="text-sm text-muted-foreground">3+ Years</span>
-              </div>
+            <div className="mt-10 flex max-w-xs items-start gap-3 border-l-2 border-primary pl-4">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Trusted by businesses to build reliable digital products that grow.
+              </p>
             </div>
           </div>
 
-          {/* Right Column - Profile Card */}
-          <div className="flex justify-center lg:justify-end animate-scale-in">
-            <div className="relative">
-              {/* Glassmorphic Card */}
-              <div className="relative glass rounded-2xl p-10 shadow-2xl max-w-xl">
-                <div className="space-y-8">
-                  {/* Profile Image */}
-                  <div className="flex justify-center">
-                    <div className="relative">
-                      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
-                        <img
-                          src={profileImage}
-                          alt="Mesum Abbas - Web Developer and Full Stack Developer in Gilgit Baltistan"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full border-4 border-card flex items-center justify-center">
-                        <span className="text-sm">✓</span>
-                      </div>
-                    </div>
-                  </div>
+          {/* Right — tagline + CTAs */}
+          <div className="lg:col-span-5 lg:col-start-8 lg:self-end lg:pb-8">
+            <p className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+              Innovate. Develop. Succeed. Fast.
+            </p>
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+              Transform your ideas into cutting-edge web solutions. Full Stack, SaaS &amp; MVP
+              development for founders and teams in Gilgit, Pakistan, and beyond.
+            </p>
 
-                  {/* Info */}
-                  <div className="text-center space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">Mesum Abbas</h3>
-                    <p className="text-base text-muted-foreground">Full Stack Developer in Gilgit Baltistan</p>
-                  </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" variant="default" onClick={() => scrollToSection('contact')}>
+                Get a Free Quote
+              </Button>
+              <Button size="lg" variant="mint" onClick={() => scrollToSection('services')}>
+                Our Services
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
 
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/50">
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-primary">3+</p>
-                      <p className="text-sm text-muted-foreground">Years Exp</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-primary">50+</p>
-                      <p className="text-sm text-muted-foreground">Projects</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-3xl font-bold text-primary">98%</p>
-                      <p className="text-sm text-muted-foreground">Success</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
+            <div className="mt-10 flex flex-wrap items-center gap-5">
+              <a
+                href="https://github.com/mesum357"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/50 text-primary">
+                  <Github className="h-3.5 w-3.5" />
+                </span>
+                GitHub
+              </a>
+              <a
+                href="https://pk.linkedin.com/in/mesumabbas357"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/50 text-primary">
+                  <Linkedin className="h-3.5 w-3.5" />
+                </span>
+                LinkedIn
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Founder caption under portrait */}
+        <div className="relative z-10 mt-8 flex items-center justify-center gap-2.5 pb-4 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:-translate-x-1/2">
+          <span className="h-2 w-2 rounded-full bg-primary" />
+          <p className="font-display text-sm text-foreground">
+            Mesum Abbas — Full Stack Developer
+          </p>
         </div>
       </div>
     </section>

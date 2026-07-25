@@ -28,36 +28,22 @@ export default function Clients() {
     <section
       id="clients"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 transition-all duration-1000 ${
+      className={`relative overflow-hidden border-y border-border py-16 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Trusted By
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Proud to have partnered with amazing companies across various industries
-          </p>
-        </div>
-
-        {/* Clients Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+      <div className="pointer-events-none absolute inset-0 map-dots opacity-30" aria-hidden="true" />
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="eyebrow mb-10 justify-center">Trusted Partners</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
           {clients.map((client) => (
-            <div
+            <img
               key={client.name}
-              className="relative group"
-            >
-              <div className="glass rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg aspect-square flex items-center justify-center">
-                <img
-                  src={client.logo}
-                  alt={`${client.name} - Client of Mesum Abbas, Web Developer in Gilgit Baltistan`}
-                  className="w-full h-full object-contain rounded-lg opacity-70 group-hover:opacity-100 transition-opacity"
-                />
-              </div>
-            </div>
+              src={client.logo}
+              alt={`${client.name} — client of Mesum Abbas`}
+              className="h-10 w-auto max-w-[120px] object-contain opacity-50 grayscale transition-opacity hover:opacity-90 dark:brightness-150 dark:contrast-75"
+              loading="lazy"
+            />
           ))}
         </div>
       </div>

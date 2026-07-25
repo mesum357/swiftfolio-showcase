@@ -47,23 +47,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        iosGreen: {
-          500: '#34C759',
-          700: '#19954C'
-        },
-        iosNeutral: {
-          50: '#F7F7F8',
-          900: '#0B0B0D'
-        }
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+        sans: ['Roboto', 'system-ui', '-apple-system', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        display: ['Poppins', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif']
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        '2xl': '1rem'
+        '2xl': '1.5rem',
+        '3xl': '1.75rem',
+        '4xl': '2rem',
       },
       backdropBlur: {
         xs: '2px',

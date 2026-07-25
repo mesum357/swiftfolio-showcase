@@ -2,107 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+  MaXel-accurate design system
+  - Near-black surfaces
+  - Neon mint accent (~#14FFC6 / #00E676 family)
+  - Poppins display + Roboto body
+  - Outline/stroke typography
 */
 
 @layer base {
   :root {
+    /* Light mode — same mint language, light surfaces */
     --background: 0 0% 97%;
-    --foreground: 240 10% 4%;
+    --foreground: 0 0% 6%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card-foreground: 0 0% 6%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
+    --popover-foreground: 0 0% 6%;
 
-    --primary: 145 77% 49%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 158 100% 42%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 145 77% 35%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 38%;
 
-    --accent: 145 77% 49%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 158 100% 42%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 145 77% 49%;
+    --border: 0 0% 86%;
+    --input: 0 0% 86%;
+    --ring: 158 100% 42%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-pill: 9999px;
 
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 100% / 0.2;
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .glass-dark {
-    background: rgba(11, 11, 13, 0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    --map-dot: 0 0% 70%;
   }
 
   .dark {
-    --background: 240 10% 4%;
+    --background: 0 0% 5%;
     --foreground: 0 0% 98%;
 
-    --card: 240 8% 8%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 8% 8%;
+    --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 145 77% 49%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 158 100% 48%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 145 77% 35%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 62%;
 
-    --accent: 145 77% 49%;
-    --accent-foreground: 240 10% 4%;
+    --accent: 158 100% 48%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 15%;
-    --input: 240 8% 15%;
-    --ring: 145 77% 49%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 158 100% 48%;
 
-    --glass-bg: 240 8% 8% / 0.7;
-    --glass-border: 0 0% 100% / 0.1;
+    --map-dot: 0 0% 18%;
   }
 
-  .dark .glass {
-    background: rgba(11, 11, 13, 0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .glass {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
   }
 
-  .dark .glass-dark {
-    background: rgba(11, 11, 13, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+  .header-blur {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
   }
 }
 
@@ -111,7 +97,75 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* MaXel section label: mint dot + text */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-display text-sm font-medium text-foreground;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-2 w-2 shrink-0 rounded-full bg-primary;
+  }
+
+  /* Outline / stroke text (MaXel signature) */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px hsl(var(--primary));
+    text-stroke: 1.5px hsl(var(--primary));
+  }
+
+  .text-outline-muted {
+    color: transparent;
+    -webkit-text-stroke: 1.5px hsl(0 0% 45%);
+    text-stroke: 1.5px hsl(0 0% 45%);
+  }
+
+  .dark .text-outline-muted {
+    -webkit-text-stroke: 1.5px hsl(0 0% 35%);
+    text-stroke: 1.5px hsl(0 0% 35%);
+  }
+
+  /* Soft dotted map texture for testimonials / CTA bands */
+  .map-dots {
+    background-image: radial-gradient(hsl(var(--map-dot)) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Large rounded media frame */
+  .media-frame {
+    @apply overflow-hidden rounded-[1.75rem] border border-border;
+  }
+
+  /* Icon box with mint border */
+  .icon-box {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/60 text-primary;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

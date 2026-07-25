@@ -1,62 +1,96 @@
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
-import { useTheme } from '@/hooks/useTheme';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Footer() {
-  const { toggleTheme } = useTheme();
-
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/mesum357', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://pk.linkedin.com/in/mesumabbas357', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:hello@mesumabbas.online', label: 'Email' },
   ];
 
+  const quickLinks = [
+    { id: 'about', label: 'About' },
+    { id: 'services', label: 'Services' },
+    { id: 'portfolio', label: 'Work' },
+    { id: 'testimonials', label: 'Feedback' },
+    { id: 'faq', label: 'FAQ' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <footer className="border-t border-border/50 bg-card/30 backdrop-blur-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Brand */}
-          <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold text-foreground mb-1">Mesum Abbas</h3>
-            <p className="text-sm text-muted-foreground">
-              Web Developer & Full Stack Developer in Gilgit, Gilgit Baltistan (GB)
+    <footer className="border-t border-border bg-card/40">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2 max-w-md">
+            <div className="mb-4 font-display text-2xl font-bold tracking-tight text-foreground">
+              Mes
+              <span className="relative inline-block">
+                <span className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
+                <span className="relative">u</span>
+              </span>
+              m
+            </div>
+            <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+              Mesum Abbas — Full Stack Developer in Gilgit, Gilgit Baltistan, and Pakistan.
+              SaaS developer and MVP developer building fast, scalable digital products.
             </p>
+            <div className="flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <Button
+                  key={social.label}
+                  variant="mint"
+                  size="icon"
+                  onClick={() => window.open(social.href, '_blank', 'noopener,noreferrer')}
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </Button>
+              ))}
+            </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-3">
-            {socialLinks.map((social) => (
-              <Button
-                key={social.label}
-                variant="ghost"
-                size="icon"
-                className="rounded-full hover:bg-primary/10 hover:text-primary"
-                onClick={() => window.open(social.href, '_blank')}
-                aria-label={social.label}
-              >
-                <social.icon className="h-5 w-5" />
-              </Button>
-            ))}
+          <div>
+            <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-foreground">
+              Navigate
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Theme Toggle (duplicate for footer) */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleTheme}
-            className="border-border hover:bg-muted rounded-full"
-          >
-            Toggle Theme
-          </Button>
+          <div>
+            <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-foreground">
+              Have a project?
+            </h3>
+            <p className="mb-4 text-sm text-muted-foreground">
+              Let's build something great together.
+            </p>
+            <Button onClick={() => scrollToSection('contact')} variant="mint">
+              Start a Project
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-border/50 text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            © {new Date().getFullYear()} Made with
-            <Heart className="h-4 w-4 text-primary fill-primary" />
-            by Mesum Abbas
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Mesum Abbas. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Full Stack · SaaS &amp; MVP · Gilgit Baltistan, Pakistan
           </p>
         </div>
       </div>

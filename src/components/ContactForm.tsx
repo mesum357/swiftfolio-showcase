@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send, CheckCircle2, Mail, MapPin, Clock } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -84,26 +84,61 @@ export default function ContactForm() {
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 transition-all duration-1000 ${
+      className={`py-28 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Get In Touch
+        <div className="grid gap-12 lg:grid-cols-5">
+          {/* Left: contact info */}
+          <div className="lg:col-span-2">
+            <p className="eyebrow mb-4">Get In Touch</p>
+            <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+              Hire a Full Stack, SaaS &amp; MVP developer
             </h2>
-            <p className="text-muted-foreground">
-              Have a project in mind? As a Web Developer and Full Stack Developer in Gilgit, Gilgit Baltistan (GB), I'm here to help bring your ideas to life. Get in touch for web development services.
+            <p className="mt-4 text-muted-foreground">
+              Looking for Full Stack Developers in Gilgit or Full Stack Developers in Pakistan?
+              Reach out — available for freelance, SaaS builds, MVP launches, and remote work.
             </p>
+
+            <div className="mt-8 space-y-4">
+              <a
+                href="mailto:hello@mesumabbas.online"
+                className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4 transition-colors hover:border-primary/50"
+              >
+                <span className="icon-box">
+                  <Mail className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block font-display text-sm font-semibold text-foreground">Email</span>
+                  <span className="block text-sm text-muted-foreground">hello@mesumabbas.online</span>
+                </span>
+              </a>
+              <div className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4">
+                <span className="icon-box">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block font-display text-sm font-semibold text-foreground">Location</span>
+                  <span className="block text-sm text-muted-foreground">Gilgit, Gilgit Baltistan (GB)</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4">
+                <span className="icon-box">
+                  <Clock className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block font-display text-sm font-semibold text-foreground">Availability</span>
+                  <span className="block text-sm text-muted-foreground">Open to freelance &amp; full-time</span>
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Right: form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-card/70 backdrop-blur-sm rounded-2xl p-8 border border-border/50 space-y-6"
+            className="space-y-6 rounded-[2rem] border border-border bg-card p-8 lg:col-span-3"
           >
             {/* Name */}
             <div>
@@ -116,9 +151,9 @@ export default function ContactForm() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-xl bg-background border ${
+                className={`w-full rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
                   errors.name ? 'border-destructive' : 'border-border'
-                } text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all`}
+                }`}
                 placeholder="Your name"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
@@ -141,9 +176,9 @@ export default function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-xl bg-background border ${
+                className={`w-full rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
                   errors.email ? 'border-destructive' : 'border-border'
-                } text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all`}
+                }`}
                 placeholder="your.email@example.com"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
@@ -167,7 +202,7 @@ export default function ContactForm() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
                   placeholder="Project inquiry"
                 />
               </div>
@@ -181,7 +216,7 @@ export default function ContactForm() {
                   name="inquiryType"
                   value={formData.inquiryType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                   <option value="general">General</option>
                   <option value="project">Project</option>
@@ -202,9 +237,9 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-3 rounded-xl bg-background border ${
+                className={`w-full resize-none rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
                   errors.message ? 'border-destructive' : 'border-border'
-                } text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none`}
+                }`}
                 placeholder="Tell me about your project..."
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? 'message-error' : undefined}
@@ -217,18 +252,12 @@ export default function ContactForm() {
             </div>
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-base"
-            >
+            <Button type="submit" size="lg" variant="mint" disabled={isSubmitting} className="w-full">
               {isSubmitting ? (
-                <>
-                  <span className="animate-pulse">Sending...</span>
-                </>
+                <span className="animate-pulse">Sending...</span>
               ) : (
                 <>
-                  <Send className="mr-2 h-5 w-5" />
+                  <Send className="h-5 w-5" />
                   Send Message
                 </>
               )}

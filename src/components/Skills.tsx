@@ -58,18 +58,22 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-muted/30 transition-all duration-1000 ${
+      className={`py-28 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Skills & Expertise
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications. Full Stack Development expertise in Gilgit Baltistan.
+        <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="eyebrow mb-4">Skills &amp; Expertise</p>
+            <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+              Full stack toolkit for SaaS, MVPs &amp; web apps
+            </h2>
+          </div>
+          <p className="text-muted-foreground lg:col-span-5">
+            Technologies used by Full Stack Developers in Gilgit and across Pakistan to ship
+            production software.
           </p>
         </div>
 
@@ -77,7 +81,7 @@ export default function Skills() {
         <div
           role="tablist"
           aria-label="Skills categories"
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="mb-12 flex flex-wrap gap-2"
         >
           {tabs.map((tab) => (
             <button
@@ -98,10 +102,10 @@ export default function Skills() {
                   setActiveTab(tabs[prevIndex].id);
                 }
               }}
-              className={`px-6 py-3 rounded-xl font-medium transition-all ${
+              className={`cursor-pointer rounded-full px-5 py-2.5 font-display text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                 activeTab === tab.id
-                  ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                  : 'glass hover:bg-card hover:text-foreground'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'border border-border bg-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
               {tab.label}
@@ -121,19 +125,19 @@ export default function Skills() {
             return (
               <div
                 key={skill.name}
-                className="glass rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1"
+                className="group rounded-[1.5rem] border border-border bg-card/50 p-6 transition-colors hover:border-primary/40"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex items-start gap-4 mb-3">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <IconComponent className="h-6 w-6 text-primary" />
+                <div className="mb-3 flex items-start gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-primary/60 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <IconComponent className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
+                    <h3 className="font-display text-lg font-semibold text-foreground">{skill.name}</h3>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {skill.description}
                 </p>
               </div>
