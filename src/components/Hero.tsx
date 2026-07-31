@@ -23,17 +23,25 @@ export default function Hero() {
 
       <div className="container relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] flex-col justify-between px-4 sm:px-6 lg:px-8">
         <div className="grid flex-1 items-center gap-10 lg:grid-cols-12 lg:gap-6">
-          {/* Left — stacked outline headline */}
+          {/* Left — keyword-aligned H1 with MaXel outline styling */}
           <div className="lg:col-span-6">
-            <h1 className="font-display text-[clamp(3.5rem,10vw,7.5rem)] font-extrabold leading-[0.9] tracking-tight">
-              <span className="block text-foreground">Build</span>
-              <span className="block text-outline">Digital</span>
-              <span className="block text-foreground">Futures</span>
+            <p className="eyebrow mb-4">Mesum Abbas Web Developer</p>
+            <h1 className="font-display font-extrabold leading-[0.95] tracking-tight">
+              <span className="block text-[clamp(2.75rem,8vw,5.5rem)] text-foreground">
+                Mesum Abbas
+              </span>
+              <span className="mt-1 block text-[clamp(2.25rem,6.5vw,4.25rem)] text-outline">
+                Full Stack
+              </span>
+              <span className="mt-1 block text-[clamp(1.75rem,5vw,3.25rem)] text-foreground">
+                Web Developer in Gilgit
+              </span>
             </h1>
 
-            <div className="mt-10 flex max-w-xs items-start gap-3 border-l-2 border-primary pl-4">
+            <div className="mt-10 flex max-w-md items-start gap-3 border-l-2 border-primary pl-4">
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Trusted by businesses to build reliable digital products that grow.
+                One of the trusted Full Stack Developers in Gilgit and Web Developers in Gilgit
+                Baltistan — building SaaS, MVPs, and scalable products for Pakistan and beyond.
               </p>
             </div>
           </div>
@@ -44,8 +52,8 @@ export default function Hero() {
               Innovate. Develop. Succeed. Fast.
             </p>
             <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
-              Transform your ideas into cutting-edge web solutions. Full Stack, SaaS &amp; MVP
-              development for founders and teams in Gilgit, Pakistan, and beyond.
+              Mesum Abbas Full Stack Developer services: React, Node.js, cloud, SaaS, and MVP
+              development for founders and teams across Gilgit Baltistan and Pakistan.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -85,11 +93,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Founder caption under portrait */}
         <div className="relative z-10 mt-8 flex items-center justify-center gap-2.5 pb-4 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:-translate-x-1/2">
           <span className="h-2 w-2 rounded-full bg-primary" />
           <p className="font-display text-sm text-foreground">
-            Mesum Abbas — Full Stack Developer
+            Mesum Abbas — Full Stack &amp; Web Developer · Gilgit, Pakistan
           </p>
         </div>
       </div>

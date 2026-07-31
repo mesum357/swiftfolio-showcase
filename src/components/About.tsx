@@ -20,12 +20,12 @@ export default function About() {
 
         <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
           <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:col-span-7 lg:text-6xl">
-            Developer Driven by Purpose and Precision
+            Full Stack &amp; Web Developer in Gilgit driven by purpose and precision
           </h2>
           <p className="max-w-md text-base leading-relaxed text-muted-foreground lg:col-span-5">
-            I'm Mesum Abbas, a Full Stack Developer in Gilgit, Gilgit Baltistan, serving clients
-            across Pakistan. I build SaaS products, MVPs, and scalable web apps with clarity and
-            long-term growth in mind.
+            I'm Mesum Abbas, a Full Stack Developer and Web Developer in Gilgit, Gilgit Baltistan,
+            serving clients across Pakistan. I build SaaS products, MVPs, and scalable web apps with
+            clarity and long-term growth in mind.
           </p>
         </div>
 

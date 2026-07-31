@@ -39,8 +39,9 @@ export default function Services() {
         <div className="mb-20 grid gap-8 lg:grid-cols-12 lg:items-start">
           <p className="eyebrow lg:col-span-3">My Core Expertise</p>
           <p className="font-display text-2xl font-bold leading-snug text-foreground sm:text-3xl lg:col-span-9 lg:text-4xl">
-            I help businesses and founders turn ideas into functional, scalable digital products.
-            Every project is built with performance, clarity, and long-term growth in mind.
+            Looking for Web Developers in Gilgit or Full Stack Developers in Gilgit? I help
+            businesses and founders turn ideas into functional, scalable digital products — every
+            project built with performance, clarity, and long-term growth in mind.
           </p>
         </div>
 

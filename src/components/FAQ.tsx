@@ -24,11 +24,12 @@ export default function FAQ() {
           <div className="lg:col-span-2">
             <p className="eyebrow mb-4">FAQ</p>
             <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Questions about Full Stack, SaaS &amp; MVP work
+              FAQ for Web &amp; Full Stack Developers in Gilgit
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Answers about Mesum Abbas, Full Stack Developers in Gilgit and Pakistan, SaaS
-              development, and MVP development. Still have a question? Use the contact form below.
+              Answers about Mesum Abbas, Mesum Abbas Web Developer services, Full Stack Developers
+              in Gilgit, Web Developers in Gilgit, SaaS, and MVP work. Still have a question? Use
+              the contact form below.
             </p>
           </div>
 

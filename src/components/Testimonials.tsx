@@ -23,7 +23,7 @@ export default function Testimonials() {
             <div>
               <p className="eyebrow mb-6">Client Feedback Highlights</p>
               <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-                Client Feedback &amp; Experiences
+                Client Feedback from Gilgit &amp; Pakistan Projects
               </h2>
 
               <div className="mt-10 flex items-center gap-4">

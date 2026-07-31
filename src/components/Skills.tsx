@@ -72,8 +72,8 @@ export default function Skills() {
             </h2>
           </div>
           <p className="text-muted-foreground lg:col-span-5">
-            Technologies used by Full Stack Developers in Gilgit and across Pakistan to ship
-            production software.
+            Technologies used by Full Stack Developers in Gilgit and Web Developers in Gilgit
+            Baltistan to ship production software across Pakistan.
           </p>
         </div>
 

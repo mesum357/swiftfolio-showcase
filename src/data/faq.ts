@@ -3,18 +3,26 @@ export interface FaqItem {
   answer: string;
 }
 
-// AEO-oriented questions aligned to primary keywords (Mesum Abbas, Full Stack /
-// Gilgit / Pakistan, SaaS Developers, MVP Developers).
 const faq: FaqItem[] = [
   {
     question: 'Who is Mesum Abbas?',
     answer:
-      'Mesum Abbas is a Full Stack Developer based in Gilgit, Gilgit Baltistan (GB), Pakistan. He specializes in React, Node.js, SaaS development, and MVP development, helping startups and businesses build scalable web products locally and remotely.',
+      'Mesum Abbas is a Full Stack Developer and Web Developer based in Gilgit, Gilgit Baltistan (GB), Pakistan. He specializes in React, Node.js, SaaS development, and MVP development, helping startups and businesses build scalable web products locally and remotely.',
+  },
+  {
+    question: 'Who are the Web Developers in Gilgit?',
+    answer:
+      'Mesum Abbas is among the Web Developers in Gilgit offering professional website and application development — from marketing sites to full products. He serves clients in Gilgit city, Gilgit Baltistan, and remote teams across Pakistan.',
   },
   {
     question: 'Who are the Full Stack Developers in Gilgit?',
     answer:
-      'Mesum Abbas is a Full Stack Developer in Gilgit offering end-to-end web development — frontend, backend, databases, and cloud deployment. He works with clients in Gilgit Baltistan and remotely across Pakistan.',
+      'Mesum Abbas is a Full Stack Developer in Gilgit delivering end-to-end web development — frontend, backend, databases, and cloud deployment. He works with clients in Gilgit Baltistan and remotely across Pakistan.',
+  },
+  {
+    question: 'Is Mesum Abbas the same as Mesum Abas Full Stack Developer?',
+    answer:
+      'Yes. Searches for “Mesum Abas” or “Mesum Abbas Full Stack Developer” refer to the same person — Mesum Abbas, the Full Stack and Web Developer based in Gilgit, Pakistan, at mesumabbas.online.',
   },
   {
     question: 'Can I hire Full Stack Developers in Pakistan remotely?',
@@ -37,14 +45,9 @@ const faq: FaqItem[] = [
       'Core stack: React, TypeScript, Next.js, Node.js, Tailwind CSS, MongoDB, PostgreSQL, Docker, and AWS. Tools are chosen to fit each SaaS, MVP, or full stack project.',
   },
   {
-    question: 'How long does a typical MVP or full stack project take?',
+    question: 'How do I get started with Mesum Abbas Web Developer services?',
     answer:
-      'An MVP often takes 2–6 weeks depending on scope. Larger full stack or SaaS builds usually run 4–12 weeks. After a discovery call, Mesum shares a clear timeline with milestones.',
-  },
-  {
-    question: 'How do I get started with Mesum Abbas?',
-    answer:
-      'Use the contact form on mesumabbas.online with a short project brief. Mesum responds quickly to schedule a call and scope Full Stack, SaaS, or MVP development work.',
+      'Use the contact form on mesumabbas.online with a short project brief. Mesum responds quickly to schedule a call and scope Full Stack, SaaS, MVP, or web development work in Gilgit and beyond.',
   },
 ];
 

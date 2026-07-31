@@ -94,11 +94,11 @@ export default function ContactForm() {
           <div className="lg:col-span-2">
             <p className="eyebrow mb-4">Get In Touch</p>
             <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Hire a Full Stack, SaaS &amp; MVP developer
+              Hire Mesum Abbas — Web &amp; Full Stack Developer in Gilgit
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Looking for Full Stack Developers in Gilgit or Full Stack Developers in Pakistan?
-              Reach out — available for freelance, SaaS builds, MVP launches, and remote work.
+              Searching for Web Developers in Gilgit or Full Stack Developers in Pakistan? Reach
+              out for freelance, SaaS builds, MVP launches, and remote work.
             </p>
 
             <div className="mt-8 space-y-4">
