@@ -27,7 +27,7 @@ export default function FAQ() {
             </h2>
             <p className="mt-5 text-muted-foreground">
               About Mesum Abbas, Mesum Abas searches, Web Developers in Gilgit, SaaS, and MVP work.
-              Still stuck? Use the contact form below.
+              Still stuck? Email or hire on Upwork below.
             </p>
           </div>
 

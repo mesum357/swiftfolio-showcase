@@ -9,8 +9,6 @@ import {
 } from '@phosphor-icons/react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import services from '@/data/services';
-import servicesImagePrimary from '@/assets/img4.jpeg';
-import servicesImageSecondary from '@/assets/img3.jpeg';
 
 const iconMap: Record<string, Icon> = {
   Layout,
@@ -77,28 +75,34 @@ export default function Services() {
           </div>
           <div className="relative min-h-[280px] lg:col-span-7">
             <img
-              src={servicesImagePrimary}
-              alt="Mesum Abbas — Full Stack, SaaS and MVP developer"
+              src={featured.image}
+              alt={featured.imageAlt}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-card/90 lg:via-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent lg:bg-gradient-to-r lg:from-card/85 lg:via-transparent" />
           </div>
         </div>
 
-        {/* Staggered list — not equal 3-col cards */}
+        {/* Remaining services — each with its own relevant image */}
         <div className="grid gap-4 md:grid-cols-2">
-          {rest.map((service, i) => {
+          {rest.map((service) => {
             const Icon = iconMap[service.icon] ?? Layout;
-            const wide = i === 1 || i === 4;
             return (
               <article
                 key={service.title}
-                className={`group rounded-[1.5rem] border border-border/70 bg-card/30 p-7 transition-colors duration-300 hover:border-primary/35 hover:bg-card/60 ${
-                  wide ? 'md:col-span-2 lg:grid lg:grid-cols-2 lg:gap-10' : ''
-                }`}
+                className="group overflow-hidden rounded-[1.5rem] border border-border/70 bg-card/30 transition-colors duration-300 hover:border-primary/35 hover:bg-card/60"
               >
-                <div>
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-spring group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80" />
+                </div>
+                <div className="p-7">
                   <div className="mb-5 icon-box transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon weight="duotone" className="h-5 w-5" />
                   </div>
@@ -106,17 +110,17 @@ export default function Services() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {service.features.map((f) => (
+                      <li
+                        key={f}
+                        className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
+                      >
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                {wide && (
-                  <div className="mt-6 overflow-hidden rounded-2xl lg:mt-0">
-                    <img
-                      src={servicesImageSecondary}
-                      alt=""
-                      className="h-40 w-full object-cover object-[center_35%] opacity-80 lg:h-full"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
               </article>
             );
           })}

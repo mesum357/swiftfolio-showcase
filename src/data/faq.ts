@@ -47,7 +47,7 @@ const faq: FaqItem[] = [
   {
     question: 'How do I get started with Mesum Abbas Web Developer services?',
     answer:
-      'Use the contact form on mesumabbas.online with a short project brief. Mesum responds quickly to schedule a call and scope Full Stack, SaaS, MVP, or web development work in Gilgit and beyond.',
+      'Email hello@mesumabbas.online with a short project brief, or hire Mesum Abbas on Upwork. He responds quickly to scope Full Stack, SaaS, MVP, or web development work in Gilgit and beyond.',
   },
 ];
 
