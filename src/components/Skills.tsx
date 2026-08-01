@@ -1,43 +1,43 @@
 import { useState } from 'react';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { 
-  Code2, 
-  Database, 
-  Server, 
-  Cloud, 
+import {
+  Code,
+  Database,
+  HardDrives,
+  Cloud,
   Terminal,
   Palette,
-  Boxes,
+  Cube,
   GitBranch,
-  Layers,
-  Settings
-} from 'lucide-react';
+  Stack,
+  GearSix,
+} from '@phosphor-icons/react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import skillsData from '@/data/skills.json';
 
 type SkillCategory = 'frontend' | 'backend' | 'database' | 'devops' | 'tools';
 
-const iconMap: Record<string, any> = {
-  'React': Code2,
-  'TypeScript': Code2,
+const iconMap: Record<string, typeof Code> = {
+  React: Code,
+  TypeScript: Code,
   'Tailwind CSS': Palette,
-  'Next.js': Layers,
-  'Framer Motion': Boxes,
-  'Node.js': Server,
-  'Express': Server,
-  'GraphQL': Database,
-  'Python': Terminal,
-  'PostgreSQL': Database,
-  'MongoDB': Database,
-  'Redis': Database,
-  'Prisma': Database,
-  'Docker': Boxes,
-  'AWS': Cloud,
+  'Next.js': Stack,
+  'Framer Motion': Cube,
+  'Node.js': HardDrives,
+  Express: HardDrives,
+  GraphQL: Database,
+  Python: Terminal,
+  PostgreSQL: Database,
+  MongoDB: Database,
+  Redis: Database,
+  Prisma: Database,
+  Docker: Cube,
+  AWS: Cloud,
   'CI/CD': GitBranch,
-  'Kubernetes': Cloud,
-  'Git': GitBranch,
+  Kubernetes: Cloud,
+  Git: GitBranch,
   'VS Code': Terminal,
-  'Figma': Palette,
-  'Jest': Settings,
+  Figma: Palette,
+  Jest: GearSix,
 };
 
 export default function Skills() {
@@ -58,16 +58,15 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-28 transition-all duration-1000 ${
+      className={`section-pad transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      <div className="container mx-auto">
         <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="eyebrow mb-4">Skills &amp; Expertise</p>
-            <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+            <p className="eyebrow mb-5">Skills &amp; stack</p>
+            <h2 className="font-display text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl">
               Full stack toolkit for SaaS, MVPs &amp; web apps
             </h2>
           </div>
@@ -77,11 +76,10 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Tab Navigation */}
         <div
           role="tablist"
           aria-label="Skills categories"
-          className="mb-12 flex flex-wrap gap-2"
+          className="mb-10 inline-flex max-w-full flex-wrap gap-1 rounded-full border border-border/70 bg-card/40 p-1.5"
         >
           {tabs.map((tab) => (
             <button
@@ -94,18 +92,16 @@ export default function Skills() {
               onKeyDown={(e) => {
                 if (e.key === 'ArrowRight') {
                   const currentIndex = tabs.findIndex((t) => t.id === activeTab);
-                  const nextIndex = (currentIndex + 1) % tabs.length;
-                  setActiveTab(tabs[nextIndex].id);
+                  setActiveTab(tabs[(currentIndex + 1) % tabs.length].id);
                 } else if (e.key === 'ArrowLeft') {
                   const currentIndex = tabs.findIndex((t) => t.id === activeTab);
-                  const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-                  setActiveTab(tabs[prevIndex].id);
+                  setActiveTab(tabs[(currentIndex - 1 + tabs.length) % tabs.length].id);
                 }
               }}
-              className={`cursor-pointer rounded-full px-5 py-2.5 font-display text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+              className={`cursor-pointer rounded-full px-4 py-2 font-display text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                 activeTab === tab.id
-                  ? 'bg-primary text-primary-foreground'
-                  : 'border border-border bg-transparent text-muted-foreground hover:text-foreground'
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {tab.label}
@@ -113,31 +109,26 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Skills Grid */}
         <div
           role="tabpanel"
           id={`panel-${activeTab}`}
           aria-labelledby={`tab-${activeTab}`}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="divide-y divide-border/60 overflow-hidden rounded-[1.75rem] border border-border/70"
         >
-          {skills.map((skill, index) => {
-            const IconComponent = iconMap[skill.name] || Code2;
+          {skills.map((skill) => {
+            const IconComponent = iconMap[skill.name] || Code;
             return (
               <div
                 key={skill.name}
-                className="group rounded-[1.5rem] border border-border bg-card/50 p-6 transition-colors hover:border-primary/40"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group flex flex-col gap-4 bg-card/20 px-6 py-6 transition-colors hover:bg-card/50 sm:flex-row sm:items-start sm:gap-8 sm:px-8"
               >
-                <div className="mb-3 flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-primary/60 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <IconComponent className="h-5 w-5" />
+                <div className="flex items-center gap-4 sm:w-56 sm:shrink-0">
+                  <div className="icon-box transition-colors group-hover:border-primary group-hover:bg-primary/10">
+                    <IconComponent weight="duotone" className="h-5 w-5" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-lg font-semibold text-foreground">{skill.name}</h3>
-                  </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground">{skill.name}</h3>
                 </div>
-
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground sm:pt-2.5">
                   {skill.description}
                 </p>
               </div>

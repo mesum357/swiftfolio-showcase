@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ExternalLink, Linkedin } from "lucide-react";
+import { ArrowSquareOut, LinkedinLogo } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 
 declare global {
@@ -33,41 +33,43 @@ export default function LinkedInBadge() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border bg-card">
+    <div className="glass-panel relative overflow-hidden rounded-[1.75rem]">
       <div className="relative p-6 sm:p-8">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
-              <Linkedin className="h-4 w-4 text-primary" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs text-muted-foreground">
+              <LinkedinLogo weight="duotone" className="h-4 w-4 text-primary" />
               Let's connect
             </div>
-            <h3 className="mt-3 font-display text-xl font-bold text-foreground">Find me on LinkedIn</h3>
+            <h3 className="mt-3 font-display text-xl font-bold text-foreground">
+              Find me on LinkedIn
+            </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Profile badge + quick link to connect.
+              Profile badge + quick link for Web Developers in Gilgit and hiring teams.
             </p>
           </div>
-          <Button asChild variant="secondary" className="shrink-0">
+          <Button asChild variant="outline" className="shrink-0">
             <a
               href="https://pk.linkedin.com/in/mesumabbas357"
               target="_blank"
               rel="noreferrer"
             >
-              Visit profile <ExternalLink className="ml-2 h-4 w-4" />
+              Visit profile <ArrowSquareOut weight="duotone" className="ml-1 h-4 w-4" />
             </a>
           </Button>
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border border-border bg-background p-4">
+            <div className="rounded-2xl border border-border/60 bg-background/50 p-4">
               <div className="text-xs text-muted-foreground">Role</div>
               <div className="mt-1 font-display font-semibold text-foreground">Full Stack Developer</div>
             </div>
-            <div className="rounded-lg border border-border bg-background p-4">
+            <div className="rounded-2xl border border-border/60 bg-background/50 p-4">
               <div className="text-xs text-muted-foreground">Focus</div>
-              <div className="mt-1 font-display font-semibold text-foreground">React • Node • Cloud</div>
+              <div className="mt-1 font-display font-semibold text-foreground">React · Node · Cloud</div>
             </div>
-            <div className="rounded-lg border border-border bg-background p-4">
+            <div className="rounded-2xl border border-border/60 bg-background/50 p-4">
               <div className="text-xs text-muted-foreground">Location</div>
               <div className="mt-1 font-display font-semibold text-foreground">Gilgit Baltistan</div>
             </div>
@@ -98,4 +100,3 @@ export default function LinkedInBadge() {
     </div>
   );
 }
-

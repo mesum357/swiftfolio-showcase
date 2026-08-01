@@ -1,11 +1,11 @@
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { GithubLogo, LinkedinLogo, EnvelopeSimple, ArrowRight } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/mesum357', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://pk.linkedin.com/in/mesumabbas357', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:hello@mesumabbas.online', label: 'Email' },
+    { icon: GithubLogo, href: 'https://github.com/mesum357', label: 'GitHub' },
+    { icon: LinkedinLogo, href: 'https://pk.linkedin.com/in/mesumabbas357', label: 'LinkedIn' },
+    { icon: EnvelopeSimple, href: 'mailto:hello@mesumabbas.online', label: 'Email' },
   ];
 
   const quickLinks = [
@@ -22,39 +22,40 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-border bg-card/40">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2 max-w-md">
-            <div className="mb-4 font-display text-2xl font-bold tracking-tight text-foreground">
-              Mes
-              <span className="relative inline-block">
-                <span className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
-                <span className="relative">u</span>
+    <footer className="border-t border-border/60 bg-card/30">
+      <div className="container mx-auto py-20">
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-12">
+          <div className="max-w-md lg:col-span-5">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 font-display text-base font-bold text-primary">
+                M
+                <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-primary" />
               </span>
-              m
+              <span className="font-display text-xl font-bold tracking-tight text-foreground">
+                Mesum Abbas
+              </span>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-              Mesum Abbas — Full Stack Developer in Gilgit, Gilgit Baltistan, and Pakistan.
-              SaaS developer and MVP developer building fast, scalable digital products.
+              Full Stack Developer in Gilgit, Gilgit Baltistan, and Pakistan. SaaS developer and
+              MVP developer building fast, scalable digital products.
             </p>
             <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
                 <Button
                   key={social.label}
-                  variant="mint"
+                  variant="outline"
                   size="icon"
                   onClick={() => window.open(social.href, '_blank', 'noopener,noreferrer')}
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon weight="duotone" className="h-5 w-5" />
                 </Button>
               ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-foreground">
+          <div className="lg:col-span-3">
+            <h3 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
               Navigate
             </h3>
             <ul className="space-y-3">
@@ -62,7 +63,7 @@ export default function Footer() {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="link-underline text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </button>
@@ -71,21 +72,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-foreground">
+          <div className="lg:col-span-4">
+            <h3 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
               Have a project?
             </h3>
-            <p className="mb-4 text-sm text-muted-foreground">
-              Let's build something great together.
+            <p className="mb-5 text-sm text-muted-foreground">
+              Let's turn your brief into a high-performing product.
             </p>
-            <Button onClick={() => scrollToSection('contact')} variant="mint">
-              Start a Project
-              <ArrowRight className="h-4 w-4" />
+            <Button onClick={() => scrollToSection('contact')} variant="solid">
+              Start a project
+              <ArrowRight weight="bold" className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-8 sm:flex-row sm:items-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Mesum Abbas. All rights reserved.
           </p>

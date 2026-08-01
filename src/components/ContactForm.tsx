@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Send, CheckCircle2, Mail, MapPin, Clock } from 'lucide-react';
+import {
+  PaperPlaneTilt,
+  CheckCircle,
+  EnvelopeSimple,
+  MapPin,
+  Clock,
+} from '@phosphor-icons/react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -49,15 +55,13 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       toast.success('Message sent successfully!', {
         description: "I'll get back to you as soon as possible.",
-        icon: <CheckCircle2 className="h-5 w-5" />,
+        icon: <CheckCircle weight="fill" className="h-5 w-5" />,
       });
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -74,75 +78,77 @@ export default function ContactForm() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
+  const fieldClass =
+    'w-full rounded-2xl border bg-background/80 px-4 py-3.5 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring';
+
   return (
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-28 transition-all duration-1000 ${
+      className={`section-pad transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-5">
-          {/* Left: contact info */}
-          <div className="lg:col-span-2">
-            <p className="eyebrow mb-4">Get In Touch</p>
-            <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+      <div className="container mx-auto">
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="eyebrow mb-5">Get in touch</p>
+            <h2 className="font-display text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl">
               Hire Mesum Abbas — Web &amp; Full Stack Developer in Gilgit
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-5 text-muted-foreground">
               Searching for Web Developers in Gilgit or Full Stack Developers in Pakistan? Reach
-              out for freelance, SaaS builds, MVP launches, and remote work.
+              out for freelance, SaaS builds, MVP launches, and remote collaboration.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <address className="mt-10 space-y-3 not-italic">
               <a
                 href="mailto:hello@mesumabbas.online"
-                className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4 transition-colors hover:border-primary/50"
+                className="glass-panel flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-primary/40"
               >
                 <span className="icon-box">
-                  <Mail className="h-5 w-5" />
+                  <EnvelopeSimple weight="duotone" className="h-5 w-5" />
                 </span>
                 <span>
                   <span className="block font-display text-sm font-semibold text-foreground">Email</span>
                   <span className="block text-sm text-muted-foreground">hello@mesumabbas.online</span>
                 </span>
               </a>
-              <div className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4">
+              <div className="glass-panel flex items-center gap-4 rounded-2xl p-4">
                 <span className="icon-box">
-                  <MapPin className="h-5 w-5" />
+                  <MapPin weight="duotone" className="h-5 w-5" />
                 </span>
                 <span>
                   <span className="block font-display text-sm font-semibold text-foreground">Location</span>
-                  <span className="block text-sm text-muted-foreground">Gilgit, Gilgit Baltistan (GB)</span>
+                  <span className="block text-sm text-muted-foreground">
+                    Gilgit, Gilgit Baltistan (GB), Pakistan
+                  </span>
                 </span>
               </div>
-              <div className="flex items-center gap-4 rounded-[1.25rem] border border-border bg-card p-4">
+              <div className="glass-panel flex items-center gap-4 rounded-2xl p-4">
                 <span className="icon-box">
-                  <Clock className="h-5 w-5" />
+                  <Clock weight="duotone" className="h-5 w-5" />
                 </span>
                 <span>
                   <span className="block font-display text-sm font-semibold text-foreground">Availability</span>
                   <span className="block text-sm text-muted-foreground">Open to freelance &amp; full-time</span>
                 </span>
               </div>
-            </div>
+            </address>
           </div>
 
-          {/* Right: form */}
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 rounded-[2rem] border border-border bg-card p-8 lg:col-span-3"
+            className="glass-panel space-y-5 rounded-[2rem] p-7 md:p-9 lg:col-span-7"
+            noValidate
           >
-            {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+              <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
                 Name *
               </label>
               <input
@@ -151,23 +157,21 @@ export default function ContactForm() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
-                  errors.name ? 'border-destructive' : 'border-border'
-                }`}
+                className={`${fieldClass} ${errors.name ? 'border-destructive' : 'border-border'}`}
                 placeholder="Your name"
+                autoComplete="name"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name && (
-                <p id="name-error" className="text-sm text-destructive mt-1">
+                <p id="name-error" className="mt-1 text-sm text-destructive">
                   {errors.name}
                 </p>
               )}
             </div>
 
-            {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
                 Email *
               </label>
               <input
@@ -176,24 +180,22 @@ export default function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
-                  errors.email ? 'border-destructive' : 'border-border'
-                }`}
+                className={`${fieldClass} ${errors.email ? 'border-destructive' : 'border-border'}`}
                 placeholder="your.email@example.com"
+                autoComplete="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email && (
-                <p id="email-error" className="text-sm text-destructive mt-1">
+                <p id="email-error" className="mt-1 text-sm text-destructive">
                   {errors.email}
                 </p>
               )}
             </div>
 
-            {/* Subject & Inquiry Type */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-foreground">
                   Subject
                 </label>
                 <input
@@ -202,21 +204,21 @@ export default function ContactForm() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+                  className={`${fieldClass} border-border`}
                   placeholder="Project inquiry"
                 />
               </div>
 
               <div>
-                <label htmlFor="inquiryType" className="block text-sm font-medium text-foreground mb-2">
-                  Inquiry Type
+                <label htmlFor="inquiryType" className="mb-2 block text-sm font-medium text-foreground">
+                  Inquiry type
                 </label>
                 <select
                   id="inquiryType"
                   name="inquiryType"
                   value={formData.inquiryType}
                   onChange={handleChange}
-                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+                  className={`${fieldClass} border-border`}
                 >
                   <option value="general">General</option>
                   <option value="project">Project</option>
@@ -226,9 +228,8 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
                 Message *
               </label>
               <textarea
@@ -237,7 +238,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full resize-none rounded-md border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
+                className={`${fieldClass} resize-none ${
                   errors.message ? 'border-destructive' : 'border-border'
                 }`}
                 placeholder="Tell me about your project..."
@@ -245,20 +246,19 @@ export default function ContactForm() {
                 aria-describedby={errors.message ? 'message-error' : undefined}
               />
               {errors.message && (
-                <p id="message-error" className="text-sm text-destructive mt-1">
+                <p id="message-error" className="mt-1 text-sm text-destructive">
                   {errors.message}
                 </p>
               )}
             </div>
 
-            {/* Submit Button */}
-            <Button type="submit" size="lg" variant="mint" disabled={isSubmitting} className="w-full">
+            <Button type="submit" size="lg" variant="solid" disabled={isSubmitting} className="w-full">
               {isSubmitting ? (
                 <span className="animate-pulse">Sending...</span>
               ) : (
                 <>
-                  <Send className="h-5 w-5" />
-                  Send Message
+                  <PaperPlaneTilt weight="fill" className="h-5 w-5" />
+                  Send message
                 </>
               )}
             </Button>

@@ -1,4 +1,4 @@
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star } from '@phosphor-icons/react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Button } from '@/components/ui/button';
 import ctaBackground from '@/assets/img1.jpeg';
@@ -13,7 +13,7 @@ export default function CTA() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className={`relative overflow-hidden py-28 transition-all duration-1000 ${
+      className={`relative overflow-hidden transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
@@ -21,48 +21,40 @@ export default function CTA() {
         <img
           src={ctaBackground}
           alt=""
-          className="h-full w-full object-cover object-[center_42%]"
+          className="h-full w-full object-cover object-[center_40%]"
         />
-        <div className="absolute inset-0 bg-background/75 dark:bg-background/80" />
+        <div className="absolute inset-0 bg-background/85 dark:bg-background/88" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12">
-          {/* Rating card */}
-          <div className="rounded-[1.75rem] border border-border bg-card/90 p-8 backdrop-blur-sm lg:col-span-4">
-            <div className="mb-4 flex gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <p className="font-display text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none">
-              <span className="text-outline">4.9</span>
-            </p>
-            <p className="mt-3 font-display text-sm font-semibold text-foreground">
-              Trusted Feedback From Real Clients
+      <div className="container relative z-10 mx-auto section-pad">
+        <div className="grid max-w-4xl gap-10">
+          <div className="flex items-center gap-2">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} weight="fill" className="h-5 w-5 text-primary" />
+            ))}
+            <span className="ml-2 font-display text-sm font-semibold text-foreground">
+              4.9 · trusted by clients
+            </span>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-5">Let's work together</p>
+            <h2 className="font-display text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl lg:text-6xl">
+              Ready to build your next digital product?
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+              Have an idea or a brief? Hire Mesum Abbas — Full Stack &amp; Web Developer in Gilgit —
+              for SaaS, MVP, and production web builds across Pakistan and remote.
             </p>
           </div>
 
-          <div className="text-center lg:col-span-5">
-            <p className="eyebrow mb-4 justify-center">Let's Work Together</p>
-            <h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Ready to Build Your Next Digital Project
-            </h2>
-            <Button
-              size="lg"
-              variant="mint"
-              onClick={scrollToContact}
-              className="mt-8"
-            >
-              Start a Project
-              <ArrowRight className="h-4 w-4" />
+          <div>
+            <Button size="lg" variant="solid" onClick={scrollToContact}>
+              Start a project
+              <ArrowRight weight="bold" className="h-4 w-4" />
             </Button>
           </div>
-
-          <p className="text-sm leading-relaxed text-muted-foreground lg:col-span-3 lg:text-right">
-            Have an idea or a project in mind? Let's turn your vision into a high-performing digital
-            solution. Open to collaborations, startups, and long-term partnerships.
-          </p>
         </div>
       </div>
     </section>
