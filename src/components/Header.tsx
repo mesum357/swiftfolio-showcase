@@ -1,135 +1,155 @@
-import { useState, useEffect } from 'react';
-import { Moon, Sun, List, X, ArrowRight } from '@phosphor-icons/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Moon, Sun } from '@phosphor-icons/react';
 import { useTheme } from '@/hooks/useTheme';
-import { Button } from '@/components/ui/button';
+
+const navLinks = [
+  { href: '/#about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/#contact', label: 'Contact' },
+];
+
+function isActive(href: string, pathname: string, hashId: string) {
+  if (href.startsWith('/#')) return pathname === '/' && hashId === href.slice(2);
+  if (href === '/services') {
+    return (
+      pathname === '/services' ||
+      pathname === '/web-developer-gilgit' ||
+      pathname === '/full-stack-developer-gilgit'
+    );
+  }
+  return pathname === href;
+}
+
+function NavAnchor({
+  href,
+  label,
+  className,
+  onClick,
+  current,
+}: {
+  href: string;
+  label: string;
+  className: string;
+  onClick?: () => void;
+  current: boolean;
+}) {
+  const props = {
+    className,
+    onClick,
+    'aria-current': current ? ('page' as const) : undefined,
+  };
+  if (href.startsWith('/#')) {
+    return (
+      <a href={href} {...props}>
+        {label}
+      </a>
+    );
+  }
+  return (
+    <Link to={href} {...props}>
+      {label}
+    </Link>
+  );
+}
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { pathname } = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hashId, setHashId] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 16);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onHash = () => setHashId(window.location.hash.replace('#', ''));
+    onHash();
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
-  const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'portfolio', label: 'Work' },
-    { id: 'faq', label: 'FAQ' },
-    { id: 'contact', label: 'Contact' },
-  ];
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5">
-      <motion.nav
-        initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`pointer-events-auto mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-full px-3 py-2 transition-all duration-500 sm:px-4 ${
-          isScrolled || isMobileMenuOpen ? 'island-nav' : 'bg-transparent'
-        }`}
-        aria-label="Primary"
-      >
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="group flex shrink-0 items-center gap-2 rounded-full px-2 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label="Mesum Abbas — back to top"
-        >
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary/15 font-display text-sm font-bold text-primary">
-            M
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-primary" />
-          </span>
-          <span className="hidden font-display text-sm font-semibold tracking-tight text-foreground sm:inline">
-            Mesum Abbas
-          </span>
-        </button>
+    <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <header className="site-header">
+        <Link to="/" className="site-logo" aria-label="Mesum Abbas — home">
+          <span className="logo-text">MA</span>
+        </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <nav className="nav-links" aria-label="Primary">
           {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => scrollToSection(link.id)}
-              className="rounded-full px-3.5 py-2 font-display text-[0.8rem] font-medium text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
-            >
-              {link.label}
-            </button>
+            <NavAnchor
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              className={`nav-link${isActive(link.href, pathname, hashId) ? ' active' : ''}`}
+              current={isActive(link.href, pathname, hashId)}
+            />
           ))}
-        </div>
+        </nav>
 
-        <div className="flex items-center gap-1.5">
-          <Button
-            variant="ghost"
-            size="icon"
+        <div className="nav-actions">
+          <button
+            type="button"
+            className="theme-toggle"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="h-9 w-9"
+            aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
           >
-            {theme === 'light' ? <Moon weight="duotone" className="h-4 w-4" /> : <Sun weight="duotone" className="h-4 w-4" />}
-          </Button>
+            {theme === 'light' ? <Moon weight="regular" className="h-4 w-4" /> : <Sun weight="regular" className="h-4 w-4" />}
+          </button>
 
-          <Button
-            variant="solid"
-            size="sm"
-            onClick={() => scrollToSection('contact')}
-            className="hidden sm:inline-flex"
-          >
-            Hire me
-            <ArrowRight weight="bold" className="h-3.5 w-3.5" />
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="h-9 w-9 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X weight="bold" className="h-5 w-5" /> : <List weight="bold" className="h-5 w-5" />}
-          </Button>
+          <div className="hamburger-container">
+            <button
+              type="button"
+              className="hamburger-button"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className={`hamburger-icon${isMobileMenuOpen ? ' hamburger-icon--open' : ''}`}>
+                <span />
+                <span />
+                <span />
+              </span>
+            </button>
+          </div>
         </div>
-      </motion.nav>
+      </header>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.98 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-auto mx-auto mt-2 max-w-5xl overflow-hidden rounded-3xl island-nav md:hidden"
-          >
-            <div className="flex flex-col gap-1 p-3">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="rounded-2xl px-4 py-3 text-left font-display text-base font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <Button
-                variant="solid"
-                onClick={() => scrollToSection('contact')}
-                className="mt-1 w-full"
-              >
-                Hire Mesum Abbas
-                <ArrowRight weight="bold" className="h-4 w-4" />
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      <div
+        className={`slide-menu-overlay${isMobileMenuOpen ? ' slide-menu-overlay--open' : ''}`}
+        onClick={closeMenu}
+        aria-hidden={!isMobileMenuOpen}
+      />
+      <div className={`slide-menu${isMobileMenuOpen ? ' slide-menu--open' : ''}`} role="dialog" aria-label="Menu">
+        <button type="button" className="slide-menu-close" onClick={closeMenu} aria-label="Close menu">
+          <span aria-hidden="true">×</span>
+        </button>
+        <ul className="m-0 list-none p-0">
+          {navLinks.map((link) => (
+            <li key={link.href} className="border-b border-[color:var(--color-border)]">
+              <NavAnchor
+                href={link.href}
+                label={link.label}
+                className="nav-link block py-4"
+                onClick={closeMenu}
+                current={isActive(link.href, pathname, hashId)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

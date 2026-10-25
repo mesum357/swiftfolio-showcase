@@ -1,21 +1,37 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fonts: Outfit (display) + Plus Jakarta Sans (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <script>
+      (function () {
+          try {
+          var migrated = localStorage.getItem("theme-v2");
+          if (!migrated) {
+            localStorage.setItem("theme", "light");
+            localStorage.setItem("theme-v2", "1");
+          }
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark") {
+            t = "light";
+          }
+          document.documentElement.dataset.theme = t;
+          if (t === "dark") document.documentElement.classList.add("dark");
+          else document.documentElement.classList.remove("dark");
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Primary Meta Tags (title ~50 chars, description ~155 chars for SERP) -->
-    <title>Mesum Abbas | Full Stack Developer in Gilgit</title>
-    <meta name="title" content="Mesum Abbas | Full Stack Developer in Gilgit" />
-    <meta name="description" content="Mesum Abbas is a Full Stack &amp; Web Developer in Gilgit, Pakistan. Hire for SaaS, MVP, React &amp; Node.js. Trusted web developers in Gilgit — get in touch today." />
+    <!-- Primary Meta Tags (title ~50-60 chars, description ~150-160 for SERP) -->
+    <title>Mesum Abbas | Full Stack &amp; Web Developer in Gilgit</title>
+    <meta name="title" content="Mesum Abbas | Full Stack &amp; Web Developer in Gilgit" />
+    <meta name="description" content="Mesum Abbas is a full stack web developer in Gilgit. Hire for SaaS, MVPs, React and Node.js — web developers in Gilgit serving Pakistan and remote teams." />
     <meta name="keywords" content="Mesum Abbas, Mesum Abbas Web Developer, Mesum Abbas Full Stack Developer, Mesum Abas, Full Stack Developers In Gilgit, Web Developers In Gilgit, Full Stack Developers In Pakistan, Web Developer Gilgit Baltistan, SaaS Developers, MVP Developers, React Developer Gilgit" />
     <meta name="author" content="Mesum Abbas" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -29,12 +45,15 @@
     <link rel="canonical" href="https://mesumabbas.online/" />
     <link rel="alternate" hreflang="en" href="https://mesumabbas.online/" />
     <link rel="alternate" hreflang="x-default" href="https://mesumabbas.online/" />
+    <link rel="me" href="https://github.com/mesum357" />
+    <link rel="me" href="https://pk.linkedin.com/in/mesumabbas357" />
+    <link rel="me" href="mailto:info@mesumabbas.online" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://mesumabbas.online/" />
     <meta property="og:title" content="Mesum Abbas | Full Stack &amp; Web Developer in Gilgit" />
-    <meta property="og:description" content="Full Stack &amp; Web Developer in Gilgit, Pakistan. SaaS, MVP, React &amp; Node.js. Hire Mesum Abbas for scalable web products." />
+    <meta property="og:description" content="Mesum Abbas is a full stack web developer in Gilgit. Hire for SaaS, MVPs, React and Node.js — serving Gilgit, Pakistan, and remote teams." />
     <meta property="og:image" content="https://mesumabbas.online/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -47,20 +66,21 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://mesumabbas.online/" />
-    <meta name="twitter:title" content="Mesum Abbas | Full Stack Developer in Gilgit" />
-    <meta name="twitter:description" content="Full Stack &amp; Web Developer in Gilgit Baltistan. SaaS, MVP, React &amp; Node.js for clients across Pakistan." />
+    <meta name="twitter:title" content="Mesum Abbas | Full Stack &amp; Web Developer in Gilgit" />
+    <meta name="twitter:description" content="Mesum Abbas is a full stack web developer in Gilgit. SaaS, MVP, React and Node.js for clients across Pakistan." />
     <meta name="twitter:image" content="https://mesumabbas.online/og-image.jpg" />
     <meta name="twitter:image:alt" content="Mesum Abbas — Full Stack Developer Portfolio" />
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#0A0F0E" />
+    <meta name="theme-color" content="#f2f1ec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1015" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="application-name" content="Mesum Abbas Portfolio" />
 
     <!-- Person Schema -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-person">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -73,12 +93,22 @@
       "image": {
         "@type": "ImageObject",
         "url": "https://mesumabbas.online/og-image.jpg",
+        "width": 1200,
+        "height": 630,
         "caption": "Mesum Abbas — Full Stack Developer in Gilgit Pakistan"
       },
-      "email": "hello@mesumabbas.online",
+      "email": "info@mesumabbas.online",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@mesumabbas.online",
+        "contactType": "sales",
+        "areaServed": ["PK", "Gilgit"],
+        "availableLanguage": ["English"]
+      },
       "sameAs": [
         "https://github.com/mesum357",
-        "https://pk.linkedin.com/in/mesumabbas357"
+        "https://pk.linkedin.com/in/mesumabbas357",
+        "https://www.upwork.com/freelancers/~01786c6c8ccb9f4d9c"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -112,8 +142,7 @@
       },
       "worksFor": {
         "@type": "Organization",
-        "name": "Binary Hub",
-        "jobTitle": "Senior Full Stack Developer"
+        "name": "Binary Hub"
       },
       "hasOccupation": {
         "@type": "Occupation",
@@ -133,26 +162,12 @@
           }
         ],
         "skills": "React, Node.js, TypeScript, SaaS, MVP Development, Cloud Architecture"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Gilgit"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Gilgit Baltistan"
-        },
-        {
-          "@type": "Country",
-          "name": "Pakistan"
-        }
-      ]
+      }
     }
     </script>
 
     <!-- WebSite Schema -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-website">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -162,7 +177,7 @@
       "url": "https://mesumabbas.online/",
       "description": "Official portfolio of Mesum Abbas — Full Stack and Web Developer in Gilgit and Pakistan. SaaS and MVP developer building scalable web products.",
       "inLanguage": "en-US",
-      "dateModified": "2026-08-01",
+      "dateModified": "2026-09-12",
       "publisher": {
         "@id": "https://mesumabbas.online/#person"
       },
@@ -173,17 +188,17 @@
     </script>
 
     <!-- ProfessionalService Schema -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-service">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "@id": "https://mesumabbas.online/#service",
       "name": "Mesum Abbas — Full Stack, SaaS & MVP Development",
       "alternateName": "Mesum Abbas Web Development Services",
-      "description": "Web Developers in Gilgit and Full Stack Developers in Pakistan hire Mesum Abbas for SaaS development, MVP development, React, Node.js, and cloud solutions.",
+      "description": "Full stack, SaaS, and MVP development by Mesum Abbas in Gilgit, Pakistan — React, Node.js, and cloud for local and remote teams.",
       "url": "https://mesumabbas.online/",
       "image": "https://mesumabbas.online/og-image.jpg",
-      "email": "hello@mesumabbas.online",
+      "email": "info@mesumabbas.online",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -209,10 +224,7 @@
           "@type": "Country",
           "name": "Pakistan"
         },
-        {
-          "@type": "Place",
-          "name": "Remote / Worldwide"
-        }
+        "Remote"
       ],
       "serviceType": [
         "Full Stack Development",
@@ -270,7 +282,7 @@
     </script>
 
     <!-- ProfilePage Schema -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-profile">
     {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
@@ -286,12 +298,49 @@
       "mainEntity": {
         "@id": "https://mesumabbas.online/#person"
       },
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "dateModified": "2026-09-12"
+    }
+    </script>
+
+    <!-- WebPage + BreadcrumbList -->
+    <script type="application/ld+json" id="ld-webpage">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://mesumabbas.online/#webpage",
+          "url": "https://mesumabbas.online/",
+          "name": "Mesum Abbas | Full Stack & Web Developer in Gilgit",
+          "description": "Mesum Abbas is a full stack web developer in Gilgit. Hire for SaaS, MVPs, React and Node.js.",
+          "isPartOf": { "@id": "https://mesumabbas.online/#website" },
+          "about": { "@id": "https://mesumabbas.online/#person" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://mesumabbas.online/og-image.jpg"
+          },
+          "dateModified": "2026-09-12",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mesumabbas.online/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mesumabbas.online/"
+            }
+          ]
+        }
+      ]
     }
     </script>
 
     <!-- FAQPage Schema (AEO) -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-faq">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -302,39 +351,15 @@
           "name": "Who is Mesum Abbas?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mesum Abbas is a Full Stack Developer and Web Developer based in Gilgit, Gilgit Baltistan (GB), Pakistan. He specializes in React, Node.js, SaaS development, and MVP development, helping startups and businesses build scalable web products locally and remotely."
+            "text": "Mesum Abbas is a full stack developer based in Gilgit, Pakistan. He designs and ships SaaS products, MVPs, and custom web apps with React, Node.js, and cloud infrastructure for local businesses and remote teams."
           }
         },
         {
           "@type": "Question",
-          "name": "Who are the Web Developers in Gilgit?",
+          "name": "How long does an MVP usually take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mesum Abbas is among the Web Developers in Gilgit offering professional website and application development — from marketing sites to full products. He serves clients in Gilgit city, Gilgit Baltistan, and remote teams across Pakistan."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who are the Full Stack Developers in Gilgit?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mesum Abbas is a Full Stack Developer in Gilgit delivering end-to-end web development — frontend, backend, databases, and cloud deployment. He works with clients in Gilgit Baltistan and remotely across Pakistan."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Mesum Abbas the same as Mesum Abas Full Stack Developer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Searches for Mesum Abas or Mesum Abbas Full Stack Developer refer to the same person — Mesum Abbas, the Full Stack and Web Developer based in Gilgit, Pakistan, at mesumabbas.online."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I hire Full Stack Developers in Pakistan remotely?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Mesum Abbas is a Full Stack Developer in Pakistan available for remote freelance and full-time work. He builds SaaS products, MVPs, and custom web apps for clients nationwide and internationally."
+            "text": "A scoped MVP typically ships in 4–8 weeks depending on features, integrations, and content readiness. The first week is discovery and architecture; then weekly demos until launch."
           }
         },
         {
@@ -342,31 +367,39 @@
           "name": "Do you build SaaS products?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. As a SaaS developer, Mesum Abbas designs and builds multi-tenant SaaS applications, dashboards, APIs, and subscription-ready platforms using React, Node.js, and cloud infrastructure."
+            "text": "Yes. Work includes multi-tenant apps, dashboards, APIs, auth, and subscription-ready platforms using React, Node.js, and cloud hosting."
           }
         },
         {
           "@type": "Question",
-          "name": "Do you offer MVP development for startups?",
+          "name": "What stack do you use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. As an MVP developer, Mesum Abbas helps founders ship a launchable product quickly — scoped features, clean UI, and a production stack so you can validate with real users instead of throwaway prototypes."
+            "text": "Core stack: React, TypeScript, Next.js, Node.js, Tailwind CSS, MongoDB, PostgreSQL, Docker, and AWS. Tools are chosen to fit the product, not the other way around."
           }
         },
         {
           "@type": "Question",
-          "name": "What technologies do you use?",
+          "name": "Can you work with remote teams?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Core stack: React, TypeScript, Next.js, Node.js, Tailwind CSS, MongoDB, PostgreSQL, Docker, and AWS. Tools are chosen to fit each SaaS, MVP, or full stack project."
+            "text": "Yes. Engagements are remote-friendly across Pakistan and internationally, with overlap hours for standups, reviews, and handoff."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I get started with Mesum Abbas Web Developer services?",
+          "name": "How do we get started?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Email hello@mesumabbas.online with a short project brief, or hire Mesum Abbas on Upwork. He responds quickly to scope Full Stack, SaaS, MVP, or web development work in Gilgit and beyond."
+            "text": "Email info@mesumabbas.online with a short brief, or start a contract on Upwork. You will get a scope, timeline, and stack recommendation before any build starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I hire a web developer in Gilgit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Mesum Abbas is a web developer and full stack developer in Gilgit who takes freelance and remote work for SaaS, MVPs, and production web apps. Email info@mesumabbas.online or hire on Upwork to start."
           }
         }
       ]
@@ -381,15 +414,13 @@
       <main>
         <h1>Mesum Abbas | Full Stack &amp; Web Developer in Gilgit, Pakistan</h1>
         <p>
-          Mesum Abbas (also searched as Mesum Abas) is a Full Stack Developer and Web Developer
-          based in Gilgit, Gilgit Baltistan (GB), Pakistan. Hire Mesum Abbas Web Developer services
-          for SaaS development, MVP development, React, Node.js, and cloud architecture.
+          Mesum Abbas is a full stack web developer in Gilgit, Gilgit Baltistan, Pakistan.
+          Founders looking for full stack developers in Gilgit or web developers in Gilgit hire
+          him for SaaS products, MVPs, and production web apps with React, Node.js, and cloud.
         </p>
-        <h2>Web Developers in Gilgit &amp; Full Stack Developers in Gilgit</h2>
         <p>
-          Businesses looking for Web Developers in Gilgit or Full Stack Developers in Gilgit work
-          with Mesum Abbas for end-to-end websites and applications — frontend, backend, databases,
-          and deployment — for clients in Gilgit Baltistan and across Pakistan.
+          Mesum Abbas web developer work covers freelance and remote teams across Pakistan.
+          Contact: <a href="mailto:info@mesumabbas.online">info@mesumabbas.online</a>.
         </p>
         <h2>Services</h2>
         <ul>
@@ -403,23 +434,25 @@
         <h2>Frequently asked questions</h2>
         <h3>Who is Mesum Abbas?</h3>
         <p>
-          Mesum Abbas is a Full Stack Developer and Web Developer based in Gilgit, Gilgit Baltistan,
-          Pakistan, specializing in React, Node.js, SaaS, and MVP development.
+          Mesum Abbas is a full stack developer based in Gilgit, Pakistan, specializing in React,
+          Node.js, SaaS, and MVP development.
         </p>
-        <h3>Who are the Web Developers in Gilgit?</h3>
+        <h3>Can I hire a web developer in Gilgit?</h3>
         <p>
-          Mesum Abbas is among the Web Developers in Gilgit offering professional website and
-          application development for local and remote clients.
+          Yes. Mesum Abbas is a web developer and full stack developer in Gilgit. Email
+          info@mesumabbas.online or hire on Upwork.
         </p>
-        <h3>Who are the Full Stack Developers in Gilgit?</h3>
+        <h3>How do we get started?</h3>
         <p>
-          Mesum Abbas is a Full Stack Developer in Gilgit delivering frontend, backend, database,
-          and cloud solutions for Gilgit Baltistan and Pakistan.
+          Email info@mesumabbas.online with a short brief, or start a contract on Upwork.
         </p>
         <p>
-          Contact Mesum Abbas at
-          <a href="mailto:hello@mesumabbas.online">hello@mesumabbas.online</a>
-          or visit <a href="https://mesumabbas.online/">mesumabbas.online</a>.
+          Visit <a href="https://mesumabbas.online/">mesumabbas.online</a>.
+          <a href="https://mesumabbas.online/web-developer-gilgit">Web developer in Gilgit</a>.
+          <a href="https://mesumabbas.online/full-stack-developer-gilgit">Full stack developer in Gilgit</a>.
+          <a href="https://mesumabbas.online/services">Services</a>.
+          <a href="https://mesumabbas.online/work">Work</a>.
+          <a href="https://mesumabbas.online/privacy">Privacy policy</a>.
         </p>
       </main>
     </noscript>

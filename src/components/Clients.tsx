@@ -5,7 +5,7 @@ import navttcImage from '@/assets/clients/navttc.png';
 import psebImage from '@/assets/clients/pseb.jpg';
 import vfoImage from '@/assets/clients/vfo.png';
 import scoImage from '@/assets/clients/sco.jpg';
-import gbgovImage from '@/assets/clients/gbgov.png';
+import gbgovImage from '@/assets/clients/gbgov-coa.png';
 import gbpoliceImage from '@/assets/clients/gbpolice.png';
 import gbrspImage from '@/assets/clients/gbrsp.png';
 
@@ -21,6 +21,43 @@ const clients = [
   { name: 'GB RSP', logo: gbrspImage },
 ];
 
+const rowOne = clients.slice(0, 5);
+const rowTwo = clients.slice(5);
+
+function MarqueeRow({
+  items,
+  direction,
+}: {
+  items: typeof clients;
+  direction: 'ltr' | 'rtl';
+}) {
+  const track = [...items, ...items, ...items];
+
+  return (
+    <div className="partners-marquee" data-direction={direction}>
+      <div className="partners-marquee-track">
+        {track.map((client, index) => (
+          <div
+            key={`${client.name}-${index}`}
+            className="partners-marquee-item"
+            aria-hidden={index >= items.length}
+          >
+            <img
+              src={client.logo}
+              alt={index < items.length ? `${client.name} — client of Mesum Abbas` : ''}
+              className="partners-logo"
+              loading="lazy"
+              decoding="async"
+              width={110}
+              height={40}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Clients() {
   const { ref, isVisible } = useScrollReveal();
 
@@ -28,43 +65,26 @@ export default function Clients() {
     <section
       id="clients"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`relative overflow-hidden border-y border-border/60 py-20 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`section-pad section-rule transition-opacity duration-700 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="container relative z-10 mx-auto">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="eyebrow mb-3">Trusted partners</p>
-            <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-              Organizations across Gilgit Baltistan
-            </h2>
-          </div>
-          <p className="max-w-xs text-sm text-muted-foreground">
-            Selected collaborators and institutions Mesum Abbas has supported with digital work.
-          </p>
+      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="eyebrow mb-3">Trusted partners</p>
+          <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
+            Organizations across Gilgit Baltistan
+          </h2>
         </div>
+        <p className="max-w-xs text-sm text-[color:var(--color-fg-light)]">
+          Selected collaborators and institutions Mesum Abbas has supported with digital work.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-3 lg:grid-cols-5">
-          {clients.map((client) => (
-            <div
-              key={client.name}
-              className="flex h-28 items-center justify-center bg-background px-6 transition-colors hover:bg-card"
-            >
-              <img
-                src={client.logo}
-                alt={`${client.name} — client of Mesum Abbas`}
-                className="h-10 w-auto max-w-[110px] object-contain opacity-55 grayscale transition-opacity hover:opacity-100 dark:brightness-150 dark:contrast-75"
-                loading="lazy"
-              />
-            </div>
-          ))}
-          {/* Fill last cell on lg for visual balance when 9 items */}
-          <div className="hidden h-28 items-center justify-center bg-background px-6 lg:flex">
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
-              + more
-            </span>
-          </div>
+      <div className="partners-bleed" aria-label="Partner organizations">
+        <div className="partners-panel">
+          <MarqueeRow items={rowOne} direction="ltr" />
+          <MarqueeRow items={rowTwo.length ? rowTwo : rowOne} direction="rtl" />
         </div>
       </div>
     </section>

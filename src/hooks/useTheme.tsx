@@ -1,22 +1,30 @@
 import { useEffect, useState } from 'react';
 
+type Theme = 'light' | 'dark';
+
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.dataset.theme = theme;
+  root.classList.toggle('dark', theme === 'dark');
+}
+
 export function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      if (!localStorage.getItem('theme-v2')) {
+        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme-v2', '1');
+      }
+    } catch {
+      /* ignore */
+    }
     const saved = localStorage.getItem('theme');
     if (saved === 'light' || saved === 'dark') return saved;
-    // MaXel defaults to dark
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-
+    applyTheme(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 

@@ -58,28 +58,28 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`section-pad transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`section-pad section-rule transition-opacity duration-700 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="container mx-auto">
-        <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+      <div>
+        <div className="mb-10 grid gap-6 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="eyebrow mb-5">Skills &amp; stack</p>
-            <h2 className="font-display text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl">
+            <p className="eyebrow mb-4">Skills &amp; stack</p>
+            <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
               Full stack toolkit for SaaS, MVPs &amp; web apps
             </h2>
           </div>
-          <p className="text-muted-foreground lg:col-span-5">
-            Technologies used by Full Stack Developers in Gilgit and Web Developers in Gilgit
-            Baltistan to ship production software across Pakistan.
+          <p className="text-[color:var(--color-fg)] lg:col-span-5">
+            React, Node.js, and cloud tools used to ship production software for teams in Gilgit
+            and across Pakistan.
           </p>
         </div>
 
         <div
           role="tablist"
           aria-label="Skills categories"
-          className="mb-10 inline-flex max-w-full flex-wrap gap-1 rounded-full border border-border/70 bg-card/40 p-1.5"
+          className="mb-8 flex max-w-full flex-wrap gap-x-6 gap-y-2 border-b border-[color:var(--color-border)]"
         >
           {tabs.map((tab) => (
             <button
@@ -98,10 +98,8 @@ export default function Skills() {
                   setActiveTab(tabs[(currentIndex - 1 + tabs.length) % tabs.length].id);
                 }
               }}
-              className={`cursor-pointer rounded-full px-4 py-2 font-display text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                activeTab === tab.id
-                  ? 'bg-primary text-primary-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
+              className={`nav-link border-0 bg-transparent pb-3 ${
+                activeTab === tab.id ? 'active' : ''
               }`}
             >
               {tab.label}
@@ -113,22 +111,20 @@ export default function Skills() {
           role="tabpanel"
           id={`panel-${activeTab}`}
           aria-labelledby={`tab-${activeTab}`}
-          className="divide-y divide-border/60 overflow-hidden rounded-[1.75rem] border border-border/70"
+          className="hairline-list"
         >
           {skills.map((skill) => {
             const IconComponent = iconMap[skill.name] || Code;
             return (
               <div
                 key={skill.name}
-                className="group flex flex-col gap-4 bg-card/20 px-6 py-6 transition-colors hover:bg-card/50 sm:flex-row sm:items-start sm:gap-8 sm:px-8"
+                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-8"
               >
-                <div className="flex items-center gap-4 sm:w-56 sm:shrink-0">
-                  <div className="icon-box transition-colors group-hover:border-primary group-hover:bg-primary/10">
-                    <IconComponent weight="duotone" className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground">{skill.name}</h3>
+                <div className="flex items-center gap-3 sm:w-52 sm:shrink-0">
+                  <IconComponent weight="regular" className="h-4 w-4 text-[color:var(--color-accent)]" />
+                  <h3 className="font-display text-lg font-semibold">{skill.name}</h3>
                 </div>
-                <p className="flex-1 text-sm leading-relaxed text-muted-foreground sm:pt-2.5">
+                <p className="flex-1 text-sm text-[color:var(--color-fg-light)]">
                   {skill.description}
                 </p>
               </div>

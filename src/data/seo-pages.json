@@ -1,0 +1,85 @@
+{
+  "home": {
+    "path": "/",
+    "title": "Mesum Abbas | Full Stack & Web Developer in Gilgit",
+    "description": "Mesum Abbas is a full stack web developer in Gilgit. Hire for SaaS, MVPs, React and Node.js — web developers in Gilgit serving Pakistan and remote teams.",
+    "canonical": "https://mesumabbas.online/",
+    "ogType": "profile",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Mesum Abbas | Full Stack Web Developer in Gilgit",
+    "noscript": "Mesum Abbas is a full stack web developer in Gilgit, Gilgit Baltistan, Pakistan. Hire for SaaS, MVPs, and production web apps. Email info@mesumabbas.online.",
+    "breadcrumbs": [{ "name": "Home", "path": "/" }]
+  },
+  "services": {
+    "path": "/services",
+    "title": "Web Development Services | Mesum Abbas",
+    "description": "SaaS, MVP, and full stack web development from Gilgit — React, Node.js, and cloud for founders in Pakistan and remote teams. See scope, process, and how to start.",
+    "canonical": "https://mesumabbas.online/services",
+    "ogType": "website",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Web development services",
+    "noscript": "Mesum Abbas offers full stack, SaaS, MVP, frontend, backend, and cloud development from Gilgit, Pakistan. Process: discovery, weekly demos, production launch. Email info@mesumabbas.online.",
+    "breadcrumbs": [
+      { "name": "Home", "path": "/" },
+      { "name": "Services", "path": "/services" }
+    ]
+  },
+  "work": {
+    "path": "/work",
+    "title": "Work & Projects | Mesum Abbas",
+    "description": "Selected SaaS, POS, employee systems, and business websites by Mesum Abbas — including Gilgit-Baltistan work for museums, tourism, and local operators.",
+    "canonical": "https://mesumabbas.online/work",
+    "ogType": "website",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Selected work",
+    "noscript": "Portfolio of Mesum Abbas: Nuvisa, Blessed HHC, Edunia, GB Museum & Library, Magpie Treks, Birgal Valley, Glacier POS, and more. Live URLs on mesumabbas.online/work.",
+    "breadcrumbs": [
+      { "name": "Home", "path": "/" },
+      { "name": "Work", "path": "/work" }
+    ]
+  },
+  "webDeveloperGilgit": {
+    "path": "/web-developer-gilgit",
+    "title": "Web Developer in Gilgit | Mesum Abbas",
+    "description": "Hire a web developer in Gilgit for business sites, tourism, and heritage projects. Mesum Abbas builds fast, SEO-ready websites for Gilgit-Baltistan and remote clients.",
+    "canonical": "https://mesumabbas.online/web-developer-gilgit",
+    "ogType": "website",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Web developer in Gilgit",
+    "noscript": "Mesum Abbas is a web developer in Gilgit who builds websites for local businesses, tourism, and heritage projects in Gilgit-Baltistan. Email info@mesumabbas.online to hire.",
+    "breadcrumbs": [
+      { "name": "Home", "path": "/" },
+      { "name": "Services", "path": "/services" },
+      { "name": "Web developer in Gilgit", "path": "/web-developer-gilgit" }
+    ]
+  },
+  "fullStackGilgit": {
+    "path": "/full-stack-developer-gilgit",
+    "title": "Full Stack Developer in Gilgit | Mesum Abbas",
+    "description": "Hire a full stack developer in Gilgit for SaaS, MVPs, and production apps. Mesum Abbas ships React, Node.js, and cloud products for Pakistan and remote teams.",
+    "canonical": "https://mesumabbas.online/full-stack-developer-gilgit",
+    "ogType": "website",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Full stack developer in Gilgit",
+    "noscript": "Mesum Abbas is a full stack developer in Gilgit building SaaS, MVPs, POS, and employee systems with React and Node.js. Email info@mesumabbas.online.",
+    "breadcrumbs": [
+      { "name": "Home", "path": "/" },
+      { "name": "Services", "path": "/services" },
+      { "name": "Full stack developer in Gilgit", "path": "/full-stack-developer-gilgit" }
+    ]
+  },
+  "privacy": {
+    "path": "/privacy",
+    "title": "Privacy policy | Mesum Abbas",
+    "description": "How Mesum Abbas handles email, hosting logs, and third-party links on mesumabbas.online. Contact info@mesumabbas.online with questions.",
+    "canonical": "https://mesumabbas.online/privacy",
+    "ogType": "website",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "h1": "Privacy policy",
+    "noscript": "Privacy policy for mesumabbas.online, the personal portfolio of Mesum Abbas. Email info@mesumabbas.online with questions.",
+    "breadcrumbs": [
+      { "name": "Home", "path": "/" },
+      { "name": "Privacy", "path": "/privacy" }
+    ]
+  }
+}

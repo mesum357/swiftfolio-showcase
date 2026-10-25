@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import SeoHead from '@/components/SeoHead';
+import { SITE } from '@/data/site';
+import { SEO_PAGES, pageJsonLd } from '@/data/seo';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
@@ -12,11 +16,32 @@ import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
+function scrollToHash() {
+  const id = window.location.hash.replace('#', '');
+  if (!id) return;
+  requestAnimationFrame(() => {
+    document.getElementById(id)?.scrollIntoView();
+  });
+}
+
 const Index = () => {
+  useEffect(() => {
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-container">
+      <SeoHead
+        title={SITE.title}
+        description={SITE.description}
+        canonical={`${SITE.url}/`}
+        ogType="profile"
+        jsonLd={pageJsonLd(SEO_PAGES.home)}
+      />
       <Header />
-      <main>
+      <main id="main" tabIndex={-1} className="page-main page-main--hero">
         <Hero />
         <Stats />
         <About />

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { X, ArrowSquareOut, GithubLogo } from '@phosphor-icons/react';
-import { Button } from '@/components/ui/button';
+import { X, ArrowSquareOut } from '@phosphor-icons/react';
 import type { Project } from '@/data/projects';
+import { PROJECT_CATEGORIES } from '@/data/projects';
 
 interface ProjectModalProps {
   project: Project;
@@ -9,6 +9,9 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const categoryLabel =
+    PROJECT_CATEGORIES.find((c) => c.id === project.category)?.label ?? project.category;
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -48,7 +51,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 p-4 backdrop-blur-md animate-fade-in-up"
+      className="fixed inset-0 z-[10001] flex items-center justify-center bg-[color:var(--color-overlay-darker)] p-4"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -56,66 +59,53 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     >
       <div
         id="project-modal"
-        className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[2rem] border border-border/80 bg-card shadow-2xl animate-scale-in"
+        className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto border border-[color:var(--color-fg-bold)] bg-[color:var(--color-bg)]"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 rounded-full border border-border bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="theme-toggle absolute right-2 top-2 z-10"
           aria-label="Close modal"
         >
-          <X weight="bold" className="h-5 w-5 text-foreground" />
+          <X weight="bold" className="h-5 w-5" />
         </button>
 
-        <div className="relative h-64 overflow-hidden rounded-t-[2rem] sm:h-80">
+        <div className="media-frame m-0 border-0 border-b border-[color:var(--color-border)] p-0">
           <img
             src={project.image}
             alt={`${project.title} — project by Mesum Abbas`}
-            className="h-full w-full object-cover"
+            className="h-64 w-full object-cover sm:h-80"
+            width={1280}
+            height={800}
+            loading="lazy"
+            decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
         </div>
 
         <div className="p-8">
-          <h2 id="modal-title" className="mb-4 font-display text-3xl font-bold text-foreground">
+          <p className="meta-label mb-2">{categoryLabel}</p>
+          <h2 id="modal-title" className="mb-4 font-display text-3xl font-bold">
             {project.title}
           </h2>
 
-          <p className="mb-6 leading-relaxed text-muted-foreground">{project.longDescription}</p>
+          <p className="mb-6 max-w-[55ch] text-[color:var(--color-fg)]">{project.longDescription}</p>
 
           <div className="mb-6">
-            <h3 className="mb-3 font-display text-sm font-semibold text-foreground">
-              Technologies used
-            </h3>
+            <h3 className="meta-label mb-3">Technologies used</h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-border px-3 py-1 font-display text-sm font-medium text-muted-foreground"
-                >
+                <span key={tech} className="tag">
                   {tech}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button
-              variant="solid"
-              className="flex-1"
-              onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
-            >
-              <ArrowSquareOut weight="duotone" className="h-4 w-4" />
-              Live demo
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
-            >
-              <GithubLogo weight="duotone" className="h-4 w-4" />
-              Source code
-            </Button>
+          <div className="hero-cta">
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="button">
+              <ArrowSquareOut weight="regular" className="h-4 w-4" />
+              Visit live site
+            </a>
           </div>
         </div>
       </div>

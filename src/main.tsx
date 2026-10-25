@@ -1,3 +1,6 @@
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/jetbrains-mono";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";

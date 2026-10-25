@@ -16,7 +16,11 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          react: ["react", "react-dom"],
+          "framer-motion": ["framer-motion"],
+          router: ["react-router-dom"],
+        },
       },
     },
   },

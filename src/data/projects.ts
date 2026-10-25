@@ -1,72 +1,200 @@
-import eduniaImage from '@/assets/projects/edunia.png';
-import museumImage from '@/assets/projects/museum.png';
-import magpieImage from '@/assets/projects/magpie.png';
-import vitalgeoImage from '@/assets/projects/vitalgeo.png';
-import gbitImage from '@/assets/projects/gbit.png';
+import nuvisaImage from '@/assets/optimized/project-nuvisa.webp';
+import blessedImage from '@/assets/optimized/project-blessed.webp';
+import calculatorImage from '@/assets/optimized/project-calculator.webp';
+import eduniaImage from '@/assets/optimized/project-edunia.webp';
+import sitedocImage from '@/assets/optimized/project-sitedoc.webp';
+import gbitImage from '@/assets/optimized/project-gbit.webp';
+import employeeImage from '@/assets/optimized/project-employee.webp';
+import glacierImage from '@/assets/optimized/project-glacier.webp';
+import birgalPosImage from '@/assets/optimized/project-birgal-pos.webp';
+import museumImage from '@/assets/optimized/project-museum.webp';
+import birgalResortImage from '@/assets/optimized/project-birgal-resort.webp';
+import binaryImage from '@/assets/optimized/project-binary.webp';
+import magpieImage from '@/assets/optimized/project-magpie.webp';
+
+export type ProjectCategoryId = 'saas' | 'ems' | 'pos' | 'business';
+
+export interface ProjectCategory {
+  id: ProjectCategoryId;
+  label: string;
+  blurb: string;
+}
+
+export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  { id: 'saas', label: 'SaaS', blurb: 'Product platforms built to ship and scale' },
+  { id: 'ems', label: 'EMS', blurb: 'Employee systems that keep teams moving' },
+  { id: 'pos', label: 'POS Systems', blurb: 'Sales floors, inventory, and ops' },
+  { id: 'business', label: 'Business Websites', blurb: 'Brand sites that earn trust' },
+];
 
 export interface Project {
   id: number;
+  category: ProjectCategoryId;
   title: string;
   description: string;
   longDescription: string;
   image: string;
   technologies: string[];
   liveUrl: string;
-  githubUrl: string;
 }
 
 const projectsData: Project[] = [
   {
     id: 1,
-    title: 'E Dunia',
-    description: 'Connecting communities, empowering businesses, and creating opportunities across E - Dunia through innovative digital solutions.',
-    longDescription: 'E Dunia is a comprehensive digital platform that connects communities, empowers businesses, and creates opportunities across the region. The platform provides innovative digital solutions to facilitate communication, commerce, and collaboration. Built with modern web technologies, it offers a seamless user experience with real-time features and robust functionality.',
-    image: eduniaImage,
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket'],
-    liveUrl: 'https://www.edunia.org/',
-    githubUrl: 'https://github.com/mesum357/Nexus-Frontend'
+    category: 'saas',
+    title: 'Nuvisa',
+    description:
+      'UK-focused visa and immigration platform with clear guidance paths for applicants and advisors.',
+    longDescription:
+      'Nuvisa is a SaaS experience for visa and immigration workflows. The site presents service pathways, trust signals, and conversion-focused pages so applicants can understand options and take the next step without friction. Built as a polished marketing and product surface for a UK audience.',
+    image: nuvisaImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind'],
+    liveUrl: 'https://www.nuvisa.co.uk/',
   },
   {
     id: 2,
-    title: 'GB Museum',
-    description: 'The GB Museum serves as a guardian of Gilgit-Baltistan\'s extraordinary cultural heritage. We are dedicated to preserving, documenting, and showcasing the rich history, traditions, and stories of our people for current and future generations.',
-    longDescription: 'The GB Museum is a digital heritage platform dedicated to preserving and showcasing the rich cultural heritage of Gilgit-Baltistan. The platform serves as a guardian of the region\'s extraordinary history, traditions, and stories. It provides an immersive experience for visitors to explore the cultural treasures, historical artifacts, and traditional practices of the region, ensuring that this valuable heritage is preserved for current and future generations.',
-    image: museumImage,
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    liveUrl: 'https://gilgit-heritage-hub.onrender.com/',
-    githubUrl: 'https://github.com/mesum357/gilgit-heritage-hub'
+    category: 'saas',
+    title: 'Blessed HHC',
+    description:
+      'Home healthcare advocacy platform for families navigating care, case management, and applications.',
+    longDescription:
+      'Blessed Home Healthcare helps elderly, disabled, and post-hospitalized individuals access care through application support, case management, and advocacy. The site explains services, the process, and how families get started — with clear CTAs and compassionate storytelling for a Fort Worth care brand.',
+    image: blessedImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'CMS'],
+    liveUrl: 'https://www.blessedhhc.org/',
   },
   {
     id: 3,
-    title: 'Magpie Trek & Tours',
-    description: 'It is a GB Based Tourist Group Company with different tour packages and activity packages that are season wise.',
-    longDescription: 'Magpie Trek & Tours is a Gilgit-Baltistan based tourist group company offering a wide range of tour packages and activity packages tailored to different seasons. The platform provides comprehensive information about various trekking routes, tour packages, and seasonal activities. It helps tourists plan their adventures in the beautiful region of Gilgit-Baltistan with detailed itineraries, pricing, and booking options.',
-    image: magpieImage,
-    technologies: ['Node.js', 'Express', 'MongoDB', 'EJS', 'Bootstrap'],
-    liveUrl: 'https://themagpietreksandtours.com/',
-    githubUrl: 'https://github.com/mesum357/Tourist-Group-Website'
+    category: 'saas',
+    title: 'Calculator All',
+    description:
+      'Multi-tool calculator hub with fast, focused utilities for everyday math and conversions.',
+    longDescription:
+      'Calculator All (calculator1.org) is a utility SaaS-style web product that groups practical calculators in one place. The emphasis is speed, clarity, and mobile-friendly tools so visitors can solve a problem and leave — without marketing clutter getting in the way.',
+    image: calculatorImage,
+    technologies: ['React', 'TypeScript', 'Vite', 'SEO'],
+    liveUrl: 'https://calculator1.org/',
   },
   {
     id: 4,
-    title: 'VitalGeo Naturals',
-    description: 'VitalGeo Naturals (Pvt.) Ltd. is a proud enterprise based in Gilgit-Baltistan, Pakistan, dedicated to providing the world with nature\'s purest gifts — authentic gemstones, rare minerals, and pure Himalayan Shilajit.',
-    longDescription: 'VitalGeo Naturals (Pvt.) Ltd. is a proud enterprise based in Gilgit-Baltistan, Pakistan, dedicated to providing the world with nature\'s purest gifts — authentic gemstones, rare minerals, and pure Himalayan Shilajit. Founded and led by Mujahid Ali, the company bridges the rich natural resources of the northern mountains with modern standards of purity, sustainability, and quality. The platform showcases their premium products with detailed information about sourcing, quality assurance, and sustainable practices.',
-    image: vitalgeoImage,
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-    liveUrl: 'https://vitalgeonaturals.com/',
-    githubUrl: 'https://github.com/mesum357/GemstoneFrontend'
+    category: 'saas',
+    title: 'Edunia.org',
+    description:
+      'Community and opportunity platform connecting people and businesses through digital tools.',
+    longDescription:
+      'Edunia.org is a comprehensive digital platform that connects communities, empowers businesses, and creates opportunities through innovative web solutions. Built with modern stacks for real-time interaction, commerce, and collaboration across the region.',
+    image: eduniaImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket'],
+    liveUrl: 'https://www.edunia.org/',
   },
   {
     id: 5,
-    title: 'GB IT Vision',
-    description: 'GB IT Vision is a pioneering initiative launched to empower the talented workforce of Gilgit-Baltistan and across Pakistan. Recognizing the immense potential of the region\'s skilled professionals, we created a platform that connects local talent with global opportunities.',
-    longDescription: 'GB IT Vision is a pioneering initiative launched to empower the talented workforce of Gilgit-Baltistan and across Pakistan. Recognizing the immense potential of the region\'s skilled professionals, we created a platform that connects local talent with global opportunities. The platform serves as a bridge between talented professionals and potential employers, offering job listings, skill development resources, and networking opportunities to help professionals advance their careers.',
+    category: 'saas',
+    title: 'SitedocHub',
+    description:
+      'Document and site operations hub with authenticated access for teams managing project files.',
+    longDescription:
+      'SitedocHub is a SaaS login experience for document and site operations. Teams sign in to manage project documentation and related workflows in a focused portal UI designed for clarity and day-to-day use.',
+    image: sitedocImage,
+    technologies: ['React', 'TypeScript', 'Auth', 'Vercel'],
+    liveUrl: 'https://sitedochub.vercel.app/login',
+  },
+  {
+    id: 6,
+    category: 'saas',
+    title: 'SCO IT Vision',
+    description:
+      'Talent platform connecting Gilgit-Baltistan and Pakistan IT professionals with global opportunities.',
+    longDescription:
+      'SCO IT Vision empowers skilled professionals across Gilgit-Baltistan and Pakistan by bridging local talent with global opportunities. The platform supports job discovery, career visibility, and regional tech workforce growth.',
     image: gbitImage,
     technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    liveUrl: 'https://scogbitvision.com/',
-    githubUrl: 'https://github.com/mesum357/SCO-GB-IT-Vision'
-  }
+    liveUrl: 'https://sco-gb-it-vision.onrender.com',
+  },
+  {
+    id: 7,
+    category: 'ems',
+    title: 'Employee Management System',
+    description:
+      'Corporate employee portal for HR workflows, staff records, and internal operations.',
+    longDescription:
+      'MMH Corporate Employee Portal centralizes employee management for day-to-day HR and operations. The EMS surface handles staff-facing workflows in a clean authenticated portal built for reliability and clarity at work.',
+    image: employeeImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'Auth'],
+    liveUrl: 'https://employee-portal-sepia-kappa.vercel.app/',
+  },
+  {
+    id: 8,
+    category: 'pos',
+    title: 'Glacier Cold Storage POS',
+    description:
+      'Point-of-sale and inventory dashboard for cold-storage operations and warehouse sales.',
+    longDescription:
+      'Glacier Cold Storage POS is an operations dashboard for inventory, sales, and cold-storage workflows. Built for speed on the floor — clear tables, actionable status, and a UI operators can trust during busy shifts.',
+    image: glacierImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'Inventory'],
+    liveUrl: 'https://glacier-cold-storage.vercel.app/',
+  },
+  {
+    id: 9,
+    category: 'pos',
+    title: 'Birgal Valley POS',
+    description:
+      'POS and inventory system for Mountain Resort Birgal Valley — lodge sales and stock in one place.',
+    longDescription:
+      'Birgal POS & Inventory supports Mountain Resort Birgal Valley with sales, stock tracking, and day-to-day lodge commerce. Designed as a practical operations tool that matches a real hospitality and fish-farm business.',
+    image: birgalPosImage,
+    technologies: ['React', 'TypeScript', 'Node.js', 'POS'],
+    liveUrl: 'https://birgal-pos.vercel.app/',
+  },
+  {
+    id: 10,
+    category: 'business',
+    title: 'GB Museum & Library',
+    description:
+      'Heritage hub preserving and presenting the culture and history of Gilgit-Baltistan.',
+    longDescription:
+      'The GB Museum & Library digital hub preserves, documents, and showcases the cultural heritage of Gilgit-Baltistan. Visitors explore history, traditions, and stories through a respectful, content-forward web experience.',
+    image: museumImage,
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    liveUrl: 'https://gilgit-heritage-hub.onrender.com/',
+  },
+  {
+    id: 11,
+    category: 'business',
+    title: 'Mountain Resort Birgal Valley',
+    description:
+      'Family lodge and trout farm site in Ghizer — rooms, kitchen, and how to reach Birgal Valley.',
+    longDescription:
+      'Mountain Resort Birgal Valley is a family-run lodge beside glacier-fed trout ponds in Ghizer, Gilgit-Baltistan. The marketing site covers rooms, farm dining, experiences, and travel guidance with a calm mountain brand voice.',
+    image: birgalResortImage,
+    technologies: ['WordPress', 'SEO', 'Performance'],
+    liveUrl: 'https://mountainresortbirgalvalley.com/',
+  },
+  {
+    id: 12,
+    category: 'business',
+    title: 'Binary Hub',
+    description:
+      'Brand and business website for Binary Hub — clear positioning and a polished public presence.',
+    longDescription:
+      'Binary Hub is a business website built for clarity and conversion. The design prioritizes brand presence, readable service messaging, and a modern layout that works across desktop and mobile.',
+    image: binaryImage,
+    technologies: ['React', 'TypeScript', 'Tailwind'],
+    liveUrl: 'https://binaryhub.co/',
+  },
+  {
+    id: 13,
+    category: 'business',
+    title: 'The Magpie Trek and Tours',
+    description:
+      'Gilgit-Baltistan tourism company site with seasonal trek packages and activity offerings.',
+    longDescription:
+      'The Magpie Trek and Tours is a Gilgit-Baltistan based tourist group company offering seasonal tour and activity packages. The site helps travelers explore itineraries, plan adventures, and get in touch for bookings.',
+    image: magpieImage,
+    technologies: ['Node.js', 'Express', 'MongoDB', 'EJS'],
+    liveUrl: 'https://themagpietreksandtours.com/',
+  },
 ];
 
 export default projectsData;
-
